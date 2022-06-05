@@ -1,3 +1,4 @@
+using External.Mini_First_Person_Controller.Scripts;
 using UnityEngine;
 
 public class Crouch : MonoBehaviour

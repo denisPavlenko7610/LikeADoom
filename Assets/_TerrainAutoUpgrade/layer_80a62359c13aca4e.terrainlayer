@@ -6,7 +6,7 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: layer_T_lava_sand_05_A_SMT_lava_sand_05_N80a62359c13aca4e
+  m_Name: layer_80a62359c13aca4e
   m_DiffuseTexture: {fileID: 2800000, guid: 30b059a27cd405141985da2218499a25, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: da9621dfe177b2d49bd6c427c7a82d02, type: 3}
   m_MaskMapTexture: {fileID: 0}
