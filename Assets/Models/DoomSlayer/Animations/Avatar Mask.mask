@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Avatar Mask
+  m_Mask: 01000000000000000000000001000000010000000000000000000000000000000000000001000000010000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: 4_Material93_0.4_0_0
+    m_Weight: 1
+  - m_Path: 4_Material94_0.4_0_0
+    m_Weight: 1
+  - m_Path: 4_Material106_0.4_0_0
+    m_Weight: 1
+  - m_Path: 4_Material118_0.4_0_0
+    m_Weight: 1
+  - m_Path: 4_Material119_0.4_0_0
+    m_Weight: 1
+  - m_Path: 4_Material120_0.25_0_0
+    m_Weight: 1
+  - m_Path: 4_Material132_0.25_0_0
+    m_Weight: 1
+  - m_Path: 7_Material144_1_0_0
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 1
+  - m_Path: Armature/root ground
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/leftupleg
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/leftupleg/leftleg
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/leftupleg/leftleg/leftfoot
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/leftupleg/leftleg/leftfoot/lefttoebase
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/leftupleg/leftleg/leftfoot/lefttoebase/lefttoebase_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/rightupleg
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/rightupleg/rightleg
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/rightupleg/rightleg/rightfoot
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/rightupleg/rightleg/rightfoot/righttoebase
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/rightupleg/rightleg/rightfoot/righttoebase/righttoebase_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftarmroll
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftarmroll/leftarmroll_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/leftforearmroll
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/leftforearmroll/leftforearmroll_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandindex1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandindex1/lefthandindex2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandindex1/lefthandindex2/lefthandindex3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandindex1/lefthandindex2/lefthandindex3/lefthandindex3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandmiddle1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandmiddle1/lefthandmiddle2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandmiddle1/lefthandmiddle2/lefthandmiddle3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandmiddle1/lefthandmiddle2/lefthandmiddle3/lefthandmiddle3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandpinky1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandpinky1/lefthandpinky2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandpinky1/lefthandpinky2/lefthandpinky3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandpinky1/lefthandpinky2/lefthandpinky3/lefthandpinky3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandring1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandring1/lefthandring2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandring1/lefthandring2/lefthandring3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandring1/lefthandring2/lefthandring3/lefthandring3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandthumb1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandthumb1/lefthandthumb2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandthumb1/lefthandthumb2/lefthandthumb3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/leftshoulder/leftarm/leftforearm/lefthand/lefthandthumb1/lefthandthumb2/lefthandthumb3/lefthandthumb3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/neck
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/neck/head
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/neck/head/eyeball_left
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/neck/head/eyeball_left/eyeball_left_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/neck/head/eyeball_right
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/neck/head/eyeball_right/eyeball_right_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightarmroll
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightarmroll/rightarmroll_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/rightforearmroll
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/rightforearmroll/rightforearmroll_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandindex1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandindex1/righthandindex2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandindex1/righthandindex2/righthandindex3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandindex1/righthandindex2/righthandindex3/righthandindex3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandmiddle1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandmiddle1/righthandmiddle2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandmiddle1/righthandmiddle2/righthandmiddle3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandmiddle1/righthandmiddle2/righthandmiddle3/righthandmiddle3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandpinky1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandpinky1/righthandpinky2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandpinky1/righthandpinky2/righthandpinky3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandpinky1/righthandpinky2/righthandpinky3/righthandpinky3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandring1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandring1/righthandring2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandring1/righthandring2/righthandring3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandring1/righthandring2/righthandring3/righthandring3_end
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandthumb1
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandthumb1/righthandthumb2
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandthumb1/righthandthumb2/righthandthumb3
+    m_Weight: 1
+  - m_Path: Armature/root ground/hips/spine/spine1/spine2/spine3/rightshoulder/rightarm/rightforearm/righthand/righthandthumb1/righthandthumb2/righthandthumb3/righthandthumb3_end
+    m_Weight: 1
