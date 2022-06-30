@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace External.Mini_First_Person_Controller.Scripts
+namespace LikeADoom.Player
 {
-    public class FirstPersonMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
         public float speed = 5;
 

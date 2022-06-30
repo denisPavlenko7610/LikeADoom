@@ -1,39 +1,40 @@
 using System;
-using External.Mini_First_Person_Controller.Scripts;
+using LikeADoom.Enums;
 using UnityEngine;
 
-public class DoorTrigger : MonoBehaviour
+namespace LikeADoom.Player
 {
-    [SerializeField] private Animator _leftDoorAnimator;
-    [SerializeField] private Animator _rightDoorAnimator;
+    public class DoorTrigger : MonoBehaviour
+    {
+        public event Action<bool> onDoorEnterTriggeredHandler;
+        public event Action<bool> onDoorExitTriggeredHandler;
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out PlayerMovement player))
+            {
+                SetDoorState(DoorStates.Open);
+            }
+        }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out FirstPersonMovement player))
+        private void OnTriggerExit(Collider other)
         {
-            SetDoor(true);
+            if (other.TryGetComponent(out PlayerMovement player))
+            {
+                SetDoorState(DoorStates.Close);
+            }
         }
-    }
-    
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent(out FirstPersonMovement player))
-        {
-            SetDoor(false);
-        }
-    }
 
-    private void SetDoor(bool enebled)
-    {
-        if (enebled)
+        private void SetDoorState(DoorStates doorState)
         {
-            _rightDoorAnimator.SetBool("DoorOpenBool", true);
-            _leftDoorAnimator.SetBool("DoorOpenBool", true);
-        }
-        else
-        {
-            _rightDoorAnimator.SetBool("DoorOpenBool", false);
-            _leftDoorAnimator.SetBool("DoorOpenBool", false);
+            var isOpen = doorState == DoorStates.Open;
+            if (isOpen)
+            {
+                onDoorEnterTriggeredHandler?.Invoke(isOpen);
+            }
+            else
+            {
+                onDoorExitTriggeredHandler?.Invoke(isOpen);
+            }
         }
     }
 }

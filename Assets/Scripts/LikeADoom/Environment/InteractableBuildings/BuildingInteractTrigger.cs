@@ -1,4 +1,4 @@
-using External.Mini_First_Person_Controller.Scripts;
+using LikeADoom.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,13 +7,13 @@ public class BuildingInteractTrigger : MonoBehaviour
     [SerializeField] private int _sceneId;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out FirstPersonMovement player))
+        if (other.TryGetComponent(out PlayerMovement player))
         {
-            Interract(_sceneId, player.gameObject);
+            LoadBunkerLevel(_sceneId, player.gameObject);
         }
     }
     
-    private void Interract(int id, GameObject player)
+    private void LoadBunkerLevel(int id, GameObject player)
     {
         SceneManager.LoadScene(id);
     }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace External.Mini_First_Person_Controller.Scripts
+namespace LikeADoom.Player
 {
     public class FirstPersonLook : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace External.Mini_First_Person_Controller.Scripts
 
         void Reset()
         {
-            character = GetComponentInParent<FirstPersonMovement>().transform;
+            character = GetComponentInParent<PlayerMovement>().transform;
         }
 
         void Start()
