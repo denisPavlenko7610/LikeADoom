@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using LikeADoom.Utils;
 using UnityEngine;
 
 namespace LikeADoom.Collectabilities
@@ -8,15 +7,13 @@ namespace LikeADoom.Collectabilities
     {
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.collider.tag == "Player")
+            if (collision.collider.TryGetComponent(out Player.Player _))
             {
-                string currentTag = gameObject.tag;
-                
-                switch (currentTag)
+                var currentTag = gameObject.tag;
+
+                if (currentTag == Constants.HealthTag)
                 {
-                    case "Health":
-                        GetComponent<Health>().HealthIncrease();
-                        break;
+                    GetComponent<Health>().HealthIncrease();
                 }
             }
         }
