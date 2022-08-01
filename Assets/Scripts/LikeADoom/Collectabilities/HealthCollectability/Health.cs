@@ -6,7 +6,7 @@ namespace LikeADoom.Collectabilities
     {
         [SerializeField] float hpIncreaseCount;
         [SerializeField] Collider collider;
-        public void HealthIncrease()
+        public void HealthIncreasing()
         {
             Debug.Log("Health increased by " + hpIncreaseCount);
             collider.enabled = false;
