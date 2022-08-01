@@ -5,32 +5,28 @@ namespace LikeADoom.Collectabilities
 {
     public class CollectabilitiesSystem : MonoBehaviour
     {
-        Armor armor;
-        Health health;
-        Ammo ammo;
-
-        private void Start()
-        {
-            armor = GetComponent<Armor>();
-            health = GetComponent<Health>();
-            ammo = GetComponent<Ammo>();
-        }
+        [SerializeField] Armor armor;
+        [SerializeField] Health health;
+        [SerializeField] Ammo ammo;
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.collider.TryGetComponent(out Health _health))
+            if (collision.collider.TryGetComponent(out Health health))
             {
-                _health.HealthIncreasing();
+                health.IncreaseHealth();
+                health.DisableHealthObjcet();
+            }
+         
+            if (collision.collider.TryGetComponent(out Armor armor))
+            {
+                armor.IncreaseArmor();
+                armor.DisableArmorObject();
             }
 
-            if (collision.collider.TryGetComponent(out Armor _armor))
+            if (collision.collider.TryGetComponent(out Ammo ammo))
             {
-                _armor.ArmorIncreasing();
-            }
-
-            if (collision.collider.TryGetComponent(out Ammo _ammo))
-            {
-                _ammo.AmmoIncreasing();
+                ammo.IncreaseAmmo();
+                ammo.DisableAmmoObject();
             }
         }
     }

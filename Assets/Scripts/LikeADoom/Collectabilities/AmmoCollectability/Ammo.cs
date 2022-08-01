@@ -6,9 +6,13 @@ public class Ammo : MonoBehaviour
 {
     [SerializeField] float armorIncrease;
     [SerializeField] Collider collider;
-    public void AmmoIncreasing()
+    public void IncreaseAmmo()
     {
         Debug.Log("Ammo increased by " + armorIncrease);
+    }
+
+    public void DisableAmmoObject()
+    {
         collider.enabled = false;
         gameObject.SetActive(false);
     }

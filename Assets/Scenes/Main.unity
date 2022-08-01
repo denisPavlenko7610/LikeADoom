@@ -318,6 +318,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Med_Kit_Komplekt (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 156850190979316048, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 156850190979316054, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 677491330132632554, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -375,6 +383,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Armor
       objectReference: {fileID: 0}
+    - target: {fileID: 5847988121032020270, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513307436850416531, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
+      propertyPath: ammoIncrease
+      value: 3.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6513307436850416532, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -418,6 +434,10 @@ PrefabInstance:
     - target: {fileID: 6513307436850416532, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513307436850416533, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
@@ -468,9 +488,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Med_Kit_Komplekt (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 156850190979316048, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 156850190979316052, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: hpIncreaseCount
-      value: 2.5
+      value: 2.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 156850190979316054, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 677491330132632554, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: m_RootOrder
@@ -702,6 +730,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 324919637}
     m_Modifications:
+    - target: {fileID: 6299922675347406712, guid: 1cf4b329eac19934691e03a8c75a8558, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6299922675347406715, guid: 1cf4b329eac19934691e03a8c75a8558, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -749,6 +781,10 @@ PrefabInstance:
     - target: {fileID: 6639997895560062401, guid: 1cf4b329eac19934691e03a8c75a8558, type: 3}
       propertyPath: m_Name
       value: Ammo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639997895560062401, guid: 1cf4b329eac19934691e03a8c75a8558, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf4b329eac19934691e03a8c75a8558, type: 3}
@@ -1050,9 +1086,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Med_Kit_Komplekt
       objectReference: {fileID: 0}
+    - target: {fileID: 156850190979316048, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 156850190979316052, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: hpIncreaseCount
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 156850190979316054, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 677491330132632554, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: m_RootOrder
@@ -1198,6 +1242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac687c1e507a0054c873d0cfebabefa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  armor: {fileID: 6513307436850416531, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
+  health: {fileID: 156850190979316052, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
+  ammo: {fileID: 6299922675347406694, guid: 1cf4b329eac19934691e03a8c75a8558, type: 3}
 --- !u!4 &543450653262054788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7905637393970697019, guid: 0ce42a867bca5af4fa78b0e96faad220, type: 3}
