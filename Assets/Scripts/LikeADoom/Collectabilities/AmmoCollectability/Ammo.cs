@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Ammo : MonoBehaviour
+namespace LikeADoom.Collectabilities.AmmoCollectability
 {
-    [SerializeField] float armorIncrease;
-    [SerializeField] Collider collider;
-    public void IncreaseAmmo()
+    public class Ammo : MonoBehaviour
     {
-        Debug.Log("Ammo increased by " + armorIncrease);
-    }
+        [SerializeField] float ammoIncrease = 5f;
+        [SerializeField] Collider collider;
+        public void IncreaseAmmo()
+        {
+            Debug.Log("Ammo increased by " + ammoIncrease);
+        }
 
-    public void DisableAmmoObject()
-    {
-        collider.enabled = false;
-        gameObject.SetActive(false);
+        public void DisableAmmoObject()
+        {
+            collider.enabled = false;
+            gameObject.SetActive(false);
+        }
     }
 }

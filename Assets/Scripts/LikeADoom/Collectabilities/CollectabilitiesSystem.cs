@@ -1,4 +1,5 @@
-using LikeADoom.Utils;
+using LikeADoom.Collectabilities.AmmoCollectability;
+using LikeADoom.Collectabilities.ArmorCollectability;
 using UnityEngine;
 
 namespace LikeADoom.Collectabilities
@@ -11,22 +12,35 @@ namespace LikeADoom.Collectabilities
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.collider.TryGetComponent(out Health health))
+            CheckHealth(collision);
+            CheckArmor(collision);
+            CheckAmmo(collision);
+        }
+
+        private void CheckAmmo(Collision collision)
+        {
+            if (collision.collider.TryGetComponent(out Ammo ammo))
             {
-                health.IncreaseHealth();
-                health.DisableHealthObjcet();
+                ammo.IncreaseAmmo();
+                ammo.DisableAmmoObject();
             }
-         
+        }
+
+        private void CheckArmor(Collision collision)
+        {
             if (collision.collider.TryGetComponent(out Armor armor))
             {
                 armor.IncreaseArmor();
                 armor.DisableArmorObject();
             }
+        }
 
-            if (collision.collider.TryGetComponent(out Ammo ammo))
+        private void CheckHealth(Collision collision)
+        {
+            if (collision.collider.TryGetComponent(out Health health))
             {
-                ammo.IncreaseAmmo();
-                ammo.DisableAmmoObject();
+                health.IncreaseHealth();
+                health.DisableHealthObjcet();
             }
         }
     }
