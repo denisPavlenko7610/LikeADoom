@@ -17,8 +17,8 @@ namespace LikeADoom.Shooting
 
         public void Shoot(Vector3 position)
         {
-            IBullet cartridge = _creator.Create(position);
-            cartridge.ToShoot(_movement);
+            IBullet bullet = _creator.Create(position);
+            bullet.ToShoot(_movement);
         }
     }
 }
