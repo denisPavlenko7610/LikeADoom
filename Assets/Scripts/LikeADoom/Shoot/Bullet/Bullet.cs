@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace LikeADoom.Shooting
@@ -10,7 +9,7 @@ namespace LikeADoom.Shooting
 
         public void DestroyObject()
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 3f);
         }
 
         public void ToShoot(IShoot shootMovement)
@@ -23,13 +22,18 @@ namespace LikeADoom.Shooting
             _thisTransform = transform;
         }
 
-        private IEnumerator Shoot(IShoot movement)
+        private void Update()
+        {
+            DestroyObject();
+        }
+
+        private IEnumerator Shoot(IShoot shootDirection)
         {
             while (true)
             {
-                Vector3 point = movement.GetNextShootPoint();
-                _thisTransform.Translate(point);
-                yield return null;
+               Vector3 point = shootDirection.GetNextShootPoint();
+               _thisTransform.Translate(point);
+               yield return null;
             }
         }
 
