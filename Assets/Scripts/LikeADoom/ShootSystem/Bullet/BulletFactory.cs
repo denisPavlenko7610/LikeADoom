@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace LikeADoom.Shooting
 {
-    public class BulletCreator : IBulletCreator
+    public class BulletFactory : IBulletCreator
     {
         private readonly GameObject _prefab;
         private readonly Transform _parent;
         private readonly Transform _cameraTransform;
 
-        public BulletCreator(GameObject prefab, Transform parent, Transform cameraTransform)
+        public BulletFactory(GameObject prefab, Transform parent, Transform cameraTransform)
         {
             _prefab = prefab;
             _parent = parent;

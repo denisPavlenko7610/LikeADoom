@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace LikeADoom.Shooting
 { 
-    public class CalculateBulletMovementByDirection : IShoot
+    public class BulletMovement : IShootPoint
     {
         private readonly Vector3 _direction;
         private readonly float _speed;
 
-        public CalculateBulletMovementByDirection(Vector3 direction, float speed)
+        public BulletMovement(Vector3 direction, float speed)
         {
             _direction = direction;
             _speed = speed;
@@ -15,7 +15,7 @@ namespace LikeADoom.Shooting
 
         public Vector3 GetNextShootPoint()
         {
-            return _direction * Time.deltaTime * _speed;
+            return _direction * (Time.deltaTime * _speed);
         }
     }
 }

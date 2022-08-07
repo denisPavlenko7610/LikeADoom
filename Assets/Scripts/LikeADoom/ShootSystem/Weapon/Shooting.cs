@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace LikeADoom.Shooting
 {
     public class Shooting
     {
-        private readonly IShoot _movement;
+        private readonly IShootPoint _movement;
         private readonly IBulletCreator _creator;
 
-        public Shooting(IShoot movement, IBulletCreator creator)
+        public Shooting(IShootPoint movement, IBulletCreator creator)
         {
             _movement = movement;
             _creator = creator;
@@ -18,7 +16,7 @@ namespace LikeADoom.Shooting
         public void Shoot(Vector3 position)
         {
             IBullet bullet = _creator.Create(position);
-            bullet.ToShoot(_movement);
+            bullet.Shoot(_movement);
         }
     }
 }

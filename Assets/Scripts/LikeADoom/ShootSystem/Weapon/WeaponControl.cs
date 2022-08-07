@@ -9,12 +9,7 @@ namespace LikeADoom.Shooting
         [SerializeField] private Transform _spawnBullet;
         [SerializeField] private Transform _cameraTransform;
         [SerializeField, Range(0, 1000)] private float _speed;
-        private Transform _thisTransform;
-
-        private void Start()
-        {
-            _thisTransform = transform;
-        }
+        //[SerializeField, Attach] private Transform _thisTransform;
 
         private void Update()
         {
@@ -26,15 +21,14 @@ namespace LikeADoom.Shooting
 
         private void Shoot()
         {
-            CalculateDirection calculatorDirection = new CalculateDirection(_thisTransform, _spawnBullet);
-            Vector3 direction = calculatorDirection.GetDirection();
+            // CalculateDirection calculatorDirection = new CalculateDirection(_thisTransform, _spawnBullet);
+            // Vector3 direction = calculatorDirection.GetDirection();
 
-            IShoot movement = new CalculateBulletMovementByDirection(Vector3.forward, _speed);
-            BulletCreator creator = new BulletCreator(_prefab, _parent, _cameraTransform);
+            IShootPoint movement = new BulletMovement(Vector3.forward, _speed);
+            BulletFactory factory = new BulletFactory(_prefab, _parent, _cameraTransform);
 
-            Shooting shooting = new Shooting(movement, creator);
+            Shooting shooting = new Shooting(movement, factory);
             shooting.Shoot(_spawnBullet.position);
         }
     }
 }
-
