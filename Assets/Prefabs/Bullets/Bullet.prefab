@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2911f402006aa494a9751969f77597a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _thisTransform: {fileID: 4840347439974517722}
+  _bulletTransform: {fileID: 4840347439974517722}
 --- !u!1001 &9019694445263094110
 PrefabInstance:
   m_ObjectHideFlags: 0

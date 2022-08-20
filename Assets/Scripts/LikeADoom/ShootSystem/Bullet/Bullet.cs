@@ -1,12 +1,11 @@
 using System.Collections;
-using Dythervin.AutoAttach;
 using UnityEngine;
 
 namespace LikeADoom.Shooting
 {
     public class Bullet : MonoBehaviour, IBullet, IDestroy
     {
-        [SerializeField, Attach] private Transform _bulletTransform;
+        [SerializeField] private Transform _bulletTransform;
         private bool _isSetDestory;
 
         private void Update()
@@ -17,7 +16,7 @@ namespace LikeADoom.Shooting
         private void OnCollisionEnter(Collision other)
         {
             DestroyObject();
-            Debug.Log(other.gameObject.name);
+            //Debug.Log(other.gameObject.name);
         }
 
         public void DestroyObject()
@@ -30,10 +29,7 @@ namespace LikeADoom.Shooting
             _isSetDestory = true;
         }
 
-        public void Shoot(IShootPoint shootPointMovement)
-        {
-            StartCoroutine(ShootRoutine(shootPointMovement));
-        }
+        public void Shoot(IShootPoint shootPointMovement) => StartCoroutine(ShootRoutine(shootPointMovement));
 
         private IEnumerator ShootRoutine(IShootPoint shootPointDirection)
         {
