@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3813873041829479569}
   - component: {fileID: 8521468661735806196}
   m_Layer: 0
-  m_Name: HealtBar
+  m_Name: ArmorBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3304800505860767408}
   - component: {fileID: 7970379865847124515}
-  - component: {fileID: 4986172992480705888}
+  - component: {fileID: 68549888966002611}
   m_Layer: 0
   m_Name: ArmorPanel
   m_TagString: Untagged
@@ -216,7 +216,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2774698073880695588}
   m_CullTransparentMesh: 1
---- !u!114 &4986172992480705888
+--- !u!114 &68549888966002611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2774698073880695588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e9f3f830656e4991b54207c755d28b5, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e9befd593af4dc5a07178be3c320e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 2761663893117465098}
