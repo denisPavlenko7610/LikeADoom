@@ -62,14 +62,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 2761663893117465098}
   _image: {fileID: 2845551031583815508}
-  _combatShotgun: {fileID: 0}
-  _havyGun: {fileID: 0}
-  _plasmaRifle: {fileID: 0}
-  _rocketLauncher: {fileID: 0}
-  _superShotgun: {fileID: 0}
-  _ballista: {fileID: 0}
-  _chaingun: {fileID: 0}
-  _BFG9000: {fileID: 0}
+  _combatShotgun: {fileID: 21300000, guid: 6bb859b3d4369404f907559b219ab170, type: 3}
+  _havyGun: {fileID: 21300000, guid: 851514b4e502349e3924cabc6f2e1ff7, type: 3}
+  _plasmaRifle: {fileID: 21300000, guid: 82f6a001d51d346cfada4bc69a93f5cb, type: 3}
+  _rocketLauncher: {fileID: 21300000, guid: 27fd7b5f8e0a24b6f950ac917407e221, type: 3}
+  _superShotgun: {fileID: 21300000, guid: 57cf1b5a2b0974cdd8824e0ff3d52cba, type: 3}
+  _ballista: {fileID: 21300000, guid: 694513637b3424eef885c1336770e7f9, type: 3}
+  _chaingun: {fileID: 21300000, guid: 1eb252446375e4293bb46ceaa9a03d14, type: 3}
+  _BFG9000: {fileID: 21300000, guid: c3bbdb7a323894bde88c1d2e16c31229, type: 3}
 --- !u!1 &4252596584920063184
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6128120ad0f6a4143afea7b3e504eb73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6bb859b3d4369404f907559b219ab170, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
