@@ -65,6 +65,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0a6306b0004f146d7aeb14eec568c02d, type: 3}
   - {fileID: 21300000, guid: 492774e2d1bfd4fc8b151a7e4322f834, type: 3}
   - {fileID: 21300000, guid: 92e442a8222874a80980b728e1a70973, type: 3}
+  - {fileID: 21300000, guid: 76aa73e875d014c9c90704fd0b285cef, type: 3}
   - {fileID: 21300000, guid: 8c518b39086604637acc50d7542dd20e, type: 3}
   - {fileID: 21300000, guid: 6128120ad0f6a4143afea7b3e504eb73, type: 3}
   - {fileID: 21300000, guid: c471906a8395f4069a71bef05e7de41a, type: 3}
@@ -72,6 +73,7 @@ SpriteAtlas:
   - back_armor
   - podl
   - shield
+  - aim
   - front_armor
   - healt
   - line
