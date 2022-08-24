@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace LikeADoom
 {
-    public class ArmorBar : MonoBehaviour
+    public class HealthBar : MonoBehaviour
     {
         [SerializeField] private TMP_Text _label;
         [SerializeField] private Image _image;
@@ -12,7 +12,7 @@ namespace LikeADoom
         public void SetValue(int amount, int maxAmount)
         {
             _label.text = amount.ToString();
-            _image.fillAmount =(float)  amount / maxAmount;
+            _image.fillAmount = (float) amount / maxAmount;
         }
     }
 }
