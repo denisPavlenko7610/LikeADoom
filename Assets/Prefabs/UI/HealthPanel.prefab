@@ -149,7 +149,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.523
+  m_FillAmount: 0.27
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9f3f830656e4991b54207c755d28b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: {fileID: 2761663893117465098}
-  image: {fileID: 7287524482655041380}
+  _label: {fileID: 2761663893117465098}
+  _image: {fileID: 7287524482655041380}
 --- !u!1 &4252596584920063184
 GameObject:
   m_ObjectHideFlags: 0

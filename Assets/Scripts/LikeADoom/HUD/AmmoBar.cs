@@ -7,18 +7,18 @@ namespace LikeADoom
 {
     public class AmmoBar : MonoBehaviour
     {
-        [SerializeField] private TMP_Text label;
-        [SerializeField] private Image image;
+        [SerializeField] private TMP_Text _label;
+        [SerializeField] private Image _image;
 
         [Header("Sprites")] 
-        [SerializeField] private Sprite CombatShotgun;
-        [SerializeField] private Sprite HeavyGun;
-        [SerializeField] private Sprite PlasmaRifle;
-        [SerializeField] private Sprite RocketLauncher;
-        [SerializeField] private Sprite SuperShotgun;
-        [SerializeField] private Sprite Ballista;
-        [SerializeField] private Sprite Chaingun;
-        [SerializeField] private Sprite BFG9000;
+        [SerializeField] private Sprite _combatShotgun;
+        [SerializeField] private Sprite _havyGun;
+        [SerializeField] private Sprite _plasmaRifle;
+        [SerializeField] private Sprite _rocketLauncher;
+        [SerializeField] private Sprite _superShotgun;
+        [SerializeField] private Sprite _ballista;
+        [SerializeField] private Sprite _chaingun;
+        [SerializeField] private Sprite _BFG9000;
         
         private void Start()
         {
@@ -27,17 +27,17 @@ namespace LikeADoom
 
         public void SetWeapon(Weapon weapon)
         {
-            image.sprite = weapon switch
+            _image.sprite = weapon switch
             {
-                Weapon.CombatShotgun => CombatShotgun,
-                Weapon.HeavyGun => HeavyGun,
-                Weapon.PlasmaRifle => PlasmaRifle,
-                Weapon.RocketLauncher => RocketLauncher,
-                Weapon.SuperShotgun => SuperShotgun,
-                Weapon.Ballista => Ballista,
-                Weapon.Chaingun => Chaingun,
-                Weapon.BFG9000 => BFG9000,
-                _ => image.sprite
+                Weapon.CombatShotgun => _combatShotgun,
+                Weapon.HeavyGun => _havyGun,
+                Weapon.PlasmaRifle => _plasmaRifle,
+                Weapon.RocketLauncher => _rocketLauncher,
+                Weapon.SuperShotgun => _superShotgun,
+                Weapon.Ballista => _ballista,
+                Weapon.Chaingun => _chaingun,
+                Weapon.BFG9000 => _BFG9000,
+                _ => _image.sprite
             };
         }
     }
