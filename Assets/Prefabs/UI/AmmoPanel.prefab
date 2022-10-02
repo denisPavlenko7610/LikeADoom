@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3304800505860767408}
   - component: {fileID: 7970379865847124515}
   - component: {fileID: 5566485066360347872}
+  - component: {fileID: 1438441007648516446}
   m_Layer: 0
   m_Name: AmmoPanel
   m_TagString: Untagged
@@ -30,8 +31,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8636984970417096037}
   - {fileID: 8443412519714355248}
+  - {fileID: 8636984970417096037}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -60,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3db3fcba13d4a16b9ebe10d5b1737f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: {fileID: 2761663893117465098}
-  _image: {fileID: 2845551031583815508}
+  _ammoCount: {fileID: 2761663893117465098}
+  _icon: {fileID: 2845551031583815508}
   _combatShotgun: {fileID: 21300000, guid: 6bb859b3d4369404f907559b219ab170, type: 3}
   _havyGun: {fileID: 21300000, guid: 851514b4e502349e3924cabc6f2e1ff7, type: 3}
   _plasmaRifle: {fileID: 21300000, guid: 82f6a001d51d346cfada4bc69a93f5cb, type: 3}
@@ -70,6 +71,32 @@ MonoBehaviour:
   _ballista: {fileID: 21300000, guid: 694513637b3424eef885c1336770e7f9, type: 3}
   _chaingun: {fileID: 21300000, guid: 1eb252446375e4293bb46ceaa9a03d14, type: 3}
   _BFG9000: {fileID: 21300000, guid: c3bbdb7a323894bde88c1d2e16c31229, type: 3}
+--- !u!114 &1438441007648516446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774698073880695588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 40
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &4252596584920063184
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +109,7 @@ GameObject:
   - component: {fileID: 2947299851967603948}
   - component: {fileID: 2761663893117465098}
   m_Layer: 0
-  m_Name: Label
+  m_Name: ArmorCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,12 +128,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3304800505860767408}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -73.399994, y: 14.999985}
-  m_SizeDelta: {x: 52.02002, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 104.04004, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2947299851967603948
 CanvasRenderer:
@@ -163,8 +190,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.55
-  m_fontSizeBase: 27.55
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -217,7 +244,7 @@ GameObject:
   - component: {fileID: 5263641395663516239}
   - component: {fileID: 2845551031583815508}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,12 +263,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3304800505860767408}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -20.899994, y: 13.799988}
-  m_SizeDelta: {x: 47.52002, y: 41.1576}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 95.04004, y: 82.3152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5263641395663516239
 CanvasRenderer:

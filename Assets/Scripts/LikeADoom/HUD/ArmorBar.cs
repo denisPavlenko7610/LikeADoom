@@ -12,7 +12,7 @@ namespace LikeADoom
         public void SetValue(int amount, int maxAmount)
         {
             _label.text = amount.ToString();
-            _image.fillAmount =(float)  amount / maxAmount;
+            _image.fillAmount = (float)amount / maxAmount;
         }
     }
 }
