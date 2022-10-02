@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LikeADoom.Player
+namespace LikeADoom
 {
     public class FirstPersonLook : MonoBehaviour
     {

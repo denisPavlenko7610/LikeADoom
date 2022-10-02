@@ -2,7 +2,7 @@ using System;
 using LikeADoom.Enums;
 using UnityEngine;
 
-namespace LikeADoom.Player
+namespace LikeADoom
 {
     public class DoorTrigger : MonoBehaviour
     {

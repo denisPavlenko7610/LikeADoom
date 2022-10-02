@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LikeADoom.Player
+namespace LikeADoom
 {
     public class PlayerMovement : MonoBehaviour
     {

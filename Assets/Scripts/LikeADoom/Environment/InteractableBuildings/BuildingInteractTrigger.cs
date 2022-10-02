@@ -1,4 +1,4 @@
-using LikeADoom.Player;
+using LikeADoom;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

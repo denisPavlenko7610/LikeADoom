@@ -1,7 +1,7 @@
 ﻿using LikeADoom.Utils;
 using UnityEngine;
 
-namespace LikeADoom.Player
+namespace LikeADoom
 {
     public class DoorAnimationSystem : MonoBehaviour
     {
