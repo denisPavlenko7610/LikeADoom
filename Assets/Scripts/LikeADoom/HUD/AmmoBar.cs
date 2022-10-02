@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,8 +6,8 @@ namespace LikeADoom
 {
     public class AmmoBar : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _label;
-        [SerializeField] private Image _image;
+        [SerializeField] private TMP_Text _ammoCount;
+        [SerializeField] private Image _icon;
 
         [Header("Sprites")] 
         [SerializeField] private Sprite _combatShotgun;
@@ -22,12 +21,12 @@ namespace LikeADoom
         
         private void Start()
         {
-            SetWeapon(Weapon.CombatShotgun);
+            SetWeaponSprite(Weapon.CombatShotgun);
         }
 
-        public void SetWeapon(Weapon weapon)
+        private void SetWeaponSprite(Weapon weapon)
         {
-            _image.sprite = weapon switch
+            _icon.sprite = weapon switch
             {
                 Weapon.CombatShotgun => _combatShotgun,
                 Weapon.HeavyGun => _havyGun,
@@ -37,7 +36,7 @@ namespace LikeADoom
                 Weapon.Ballista => _ballista,
                 Weapon.Chaingun => _chaingun,
                 Weapon.BFG9000 => _BFG9000,
-                _ => _image.sprite
+                _ => _icon.sprite
             };
         }
     }
