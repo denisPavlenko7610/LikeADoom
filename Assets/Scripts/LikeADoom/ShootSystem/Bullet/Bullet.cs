@@ -6,6 +6,7 @@ namespace LikeADoom.Shooting
     public class Bullet : MonoBehaviour, IBullet, IDestroy
     {
         [SerializeField] private Transform _bulletTransform;
+        [SerializeField] private float _destroyDelay = 3f;
         private bool _isSetDestory;
 
         private void Update()
@@ -15,7 +16,7 @@ namespace LikeADoom.Shooting
 
         private void OnCollisionEnter(Collision other)
         {
-            DestroyObject();
+            Destroy(gameObject);
             //Debug.Log(other.gameObject.name);
         }
 
@@ -24,8 +25,7 @@ namespace LikeADoom.Shooting
             if (_isSetDestory)
                 return;
 
-            var destroyTimeInSeconds = 3f;
-            Destroy(gameObject, destroyTimeInSeconds);
+            Destroy(gameObject, _destroyDelay);
             _isSetDestory = true;
         }
 

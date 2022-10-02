@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7905637393970697019}
   - component: {fileID: 6492410311359077534}
   - component: {fileID: 9078513090411423828}
+  - component: {fileID: 7917923792506912330}
   m_Layer: 0
   m_Name: CacoDaemon
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &7917923792506912330
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421272472287922561}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.1260182
+  m_Height: 2.5517025
+  m_Direction: 1
+  m_Center: {x: 0.0000000015506519, y: -0.097062945, z: -0.021718264}
