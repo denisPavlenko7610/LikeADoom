@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 202034965}
   - component: {fileID: 202034964}
   - component: {fileID: 202034963}
+  - component: {fileID: 202034966}
   m_Layer: 5
   m_Name: LogButton
   m_TagString: Untagged
@@ -301,6 +302,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202034961}
   m_CullTransparentMesh: 1
+--- !u!111 &202034966
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202034961}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 698c95fba90c9f94c8ea5c2c39da805f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 698c95fba90c9f94c8ea5c2c39da805f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &250840931
 GameObject:
   m_ObjectHideFlags: 0
