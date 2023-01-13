@@ -4,9 +4,16 @@ namespace LikeADoom.Trainee
 {
     public class Logger : MonoBehaviour
     {
-        private void Start()
+        private IShow _logDisplay;
+
+        private void Awake()
         {
-            Debug.Log("Hello, World!");
+            _logDisplay = new Display();
+        }
+
+        public void Log()
+        {
+            _logDisplay.ShowHelloWorld();
         }
     }
 }
