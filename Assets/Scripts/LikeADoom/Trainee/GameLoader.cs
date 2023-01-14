@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace LikeADoom
+namespace LikeADoom.Trainee
 {
     public class GameLoader : MonoBehaviour
     {
