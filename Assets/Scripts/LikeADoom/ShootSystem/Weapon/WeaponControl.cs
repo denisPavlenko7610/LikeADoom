@@ -15,7 +15,7 @@ namespace LikeADoom.Shooting
 
         private void Awake()
         {
-            _bulletCreator = new BulletPool(_prefab, _parent, _cameraTransform);
+            _bulletCreator = new BulletPool(_prefab, _parent, _spawnBullet,_cameraTransform);
         }
 
         private void Update()
@@ -34,7 +34,7 @@ namespace LikeADoom.Shooting
             IShootPoint movement = new BulletMovement(Vector3.forward, _speed);
 
             Shooting shooting = new Shooting(movement, _bulletCreator);
-            shooting.Shoot(_spawnBullet.position);
+            shooting.Shoot();
         }
     }
 }

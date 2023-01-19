@@ -10,15 +10,19 @@ namespace LikeADoom.Shooting
         
         private readonly GameObject _prefab;
         private readonly Transform _parent;
+        private readonly Transform _spawnPoint;
         private readonly Transform _rotationParent;
-        private readonly IObjectPool<Bullet> _pool;
+        private readonly IObjectPool<IBullet> _pool;
 
-        public BulletPool(GameObject bulletPrefab, Transform parent, Transform rotationParentParent, int defaultCapacity = DefaultInitialCapacity, int maxSize = DefaultMaxSize)
+        public BulletPool(
+            GameObject bulletPrefab, Transform parent, Transform spawnPoint, Transform rotationParentParent, 
+            int defaultCapacity = DefaultInitialCapacity, int maxSize = DefaultMaxSize)
         {
             _prefab = bulletPrefab;
             _parent = parent;
+            _spawnPoint = spawnPoint;
             _rotationParent = rotationParentParent;
-            _pool = new ObjectPool<Bullet>(
+            _pool = new ObjectPool<IBullet>(
                 OnCreateBullet, 
                 OnGetBullet, 
                 OnReleaseBullet,
@@ -28,32 +32,33 @@ namespace LikeADoom.Shooting
                 maxSize);
         }
         
-        public IBullet Create(Vector3 position)
+        public IBullet Create()
         {
-            Bullet bullet = _pool.Get();
-            var transform = bullet.transform;
-            transform.position = position;
-            transform.rotation = _rotationParent.rotation;
+            IBullet bullet = _pool.Get();
             return bullet;
         }
 
-        private Bullet OnCreateBullet()
+        private IBullet OnCreateBullet()
         {
             GameObject bulletObject = Object.Instantiate(_prefab, _parent, true);
-            return bulletObject.GetComponent<Bullet>();
+            Transform transform = bulletObject.transform;
+            transform.position = _spawnPoint.position;
+            transform.rotation = _rotationParent.rotation;
+            
+            return bulletObject.GetComponent<IBullet>();
         }
 
-        private void OnGetBullet(Bullet bullet)
+        private void OnGetBullet(IBullet bullet)
         {
             Debug.Log("Bullet got!");
         }
 
-        private void OnReleaseBullet(Bullet bullet)
+        private void OnReleaseBullet(IBullet bullet)
         {
             Debug.Log("Bullet released!");
         }
 
-        private void OnDestroyBullet(Bullet bullet)
+        private void OnDestroyBullet(IBullet bullet)
         {
             Debug.Log("Bullet destroyed!");
         }
