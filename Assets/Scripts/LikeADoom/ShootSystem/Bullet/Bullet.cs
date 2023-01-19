@@ -3,35 +3,39 @@ using UnityEngine;
 
 namespace LikeADoom.Shooting
 {
-    public class Bullet : MonoBehaviour, IBullet, IDestroy
+    public class Bullet : MonoBehaviour, IBullet
     {
         [SerializeField] private Transform _bulletTransform;
         [SerializeField] private float _destroyDelay = 3f;
+        private Coroutine _destroyRoutine;
         private bool _isSetDestroy;
 
-        private void Update()
-        {
-            DestroyObject();
-        }
-
+        public IBulletCreator Creator { get; set; }
+        
         private void OnCollisionEnter(Collision other)
         {
-            Destroy(gameObject);
+            StopCoroutine(_destroyRoutine);
+            Recycle();
         }
 
-        public void DestroyObject()
+        private IEnumerator RecycleAfterTimeoutRoutine(float timeoutInSeconds)
         {
-            if (_isSetDestroy)
-                return;
+            yield return new WaitForSeconds(timeoutInSeconds);
+            Recycle();
+        }
 
-            Destroy(gameObject, _destroyDelay);
-            _isSetDestroy = true;
+        private void Recycle()
+        {
+            print($"Recycling... {name}");
+            Creator.Recycle(this);   
         }
 
         public void Shoot(IShootPoint shootPointMovement) => StartCoroutine(ShootRoutine(shootPointMovement));
 
         private IEnumerator ShootRoutine(IShootPoint shootPointDirection)
         {
+            _destroyRoutine = StartCoroutine(RecycleAfterTimeoutRoutine(_destroyDelay));
+            
             while (true)
             {
                 Vector3 point = shootPointDirection.GetNextShootPoint();

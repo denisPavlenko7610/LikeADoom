@@ -23,5 +23,10 @@ namespace LikeADoom.Shooting
             cartridge.transform.SetParent(_parent);
             return cartridge.GetComponent<IBullet>();
         }
+
+        public void Recycle(Bullet bullet)
+        {
+            // TODO: Find a way to remove this bullet
+        }
     }
 }
