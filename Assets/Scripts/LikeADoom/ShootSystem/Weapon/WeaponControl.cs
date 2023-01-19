@@ -11,6 +11,13 @@ namespace LikeADoom.Shooting
         [SerializeField, Range(0, 1000)] private float _speed;
         //[SerializeField, Attach] private Transform _thisTransform;
 
+        private IBulletCreator _bulletCreator;
+
+        private void Awake()
+        {
+            _bulletCreator = new BulletPool(_prefab, _parent, _cameraTransform);
+        }
+
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
@@ -25,9 +32,8 @@ namespace LikeADoom.Shooting
             // Vector3 direction = calculatorDirection.GetDirection();
 
             IShootPoint movement = new BulletMovement(Vector3.forward, _speed);
-            BulletFactory factory = new BulletFactory(_prefab, _parent, _cameraTransform);
 
-            Shooting shooting = new Shooting(movement, factory);
+            Shooting shooting = new Shooting(movement, _bulletCreator);
             shooting.Shoot(_spawnBullet.position);
         }
     }
