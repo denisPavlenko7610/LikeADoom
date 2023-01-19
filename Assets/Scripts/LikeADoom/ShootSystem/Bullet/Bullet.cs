@@ -7,7 +7,7 @@ namespace LikeADoom.Shooting
     {
         [SerializeField] private Transform _bulletTransform;
         [SerializeField] private float _destroyDelay = 3f;
-        private bool _isSetDestory;
+        private bool _isSetDestroy;
 
         private void Update()
         {
@@ -17,16 +17,15 @@ namespace LikeADoom.Shooting
         private void OnCollisionEnter(Collision other)
         {
             Destroy(gameObject);
-            //Debug.Log(other.gameObject.name);
         }
 
         public void DestroyObject()
         {
-            if (_isSetDestory)
+            if (_isSetDestroy)
                 return;
 
             Destroy(gameObject, _destroyDelay);
-            _isSetDestory = true;
+            _isSetDestroy = true;
         }
 
         public void Shoot(IShootPoint shootPointMovement) => StartCoroutine(ShootRoutine(shootPointMovement));

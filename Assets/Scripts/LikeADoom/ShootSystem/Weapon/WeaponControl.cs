@@ -9,7 +9,6 @@ namespace LikeADoom.Shooting
         [SerializeField] private Transform _spawnBullet;
         [SerializeField] private Transform _cameraTransform;
         [SerializeField, Range(0, 1000)] private float _speed;
-        //[SerializeField, Attach] private Transform _thisTransform;
 
         private IBulletCreator _bulletCreator;
 
@@ -28,9 +27,6 @@ namespace LikeADoom.Shooting
 
         private void Shoot()
         {
-            // CalculateDirection calculatorDirection = new CalculateDirection(_thisTransform, _spawnBullet);
-            // Vector3 direction = calculatorDirection.GetDirection();
-
             IShootPoint movement = new BulletMovement(Vector3.forward, _speed);
 
             Shooting shooting = new Shooting(movement, _bulletCreator);
