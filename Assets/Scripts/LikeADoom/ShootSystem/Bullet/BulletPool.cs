@@ -38,7 +38,7 @@ namespace LikeADoom.Shooting
         private Bullet OnCreateBullet()
         {
             GameObject bulletObject = Object.Instantiate(_prefab, _parent, true);
-            SetupBullet(bulletObject);
+            SetupBulletPosition(bulletObject);
 
             Bullet bullet = bulletObject.GetComponent<Bullet>();
             bullet.Creator = this;
@@ -48,28 +48,32 @@ namespace LikeADoom.Shooting
         private void OnGetBullet(Bullet bullet)
         {
             GameObject bulletObject = bullet.gameObject;
-            SetupBullet(bulletObject);
-            bulletObject.SetActive(true);
-            Debug.Log("Bullet got!");
+            SetupBulletPosition(bulletObject);
+            EnableBullet(bulletObject);
         }
         
-        private void SetupBullet(GameObject bulletObject)
+        private void OnReleaseBullet(Bullet bullet)
+        {
+            DisableBullet(bullet.gameObject);
+        }
+        
+        private void OnDestroyBullet(Bullet bullet)
+        {
+            DestroyBullet(bullet.gameObject);
+        }
+        
+        private void SetupBulletPosition(GameObject bulletObject)
         {
             Transform transform = bulletObject.transform;
             transform.position = _spawnPoint.position;
             transform.rotation = _rotationParent.rotation;
         }
 
-        private void OnReleaseBullet(Bullet bullet)
-        {
-            bullet.gameObject.SetActive(false);
-            Debug.Log("Bullet released!");
-        }
-
-        private void OnDestroyBullet(Bullet bullet)
-        {
-            Object.Destroy(bullet.gameObject);
-            Debug.Log("Bullet destroyed!");
-        }
+        private void EnableBullet(GameObject bulletObject) =>
+            bulletObject.SetActive(true);
+        private void DisableBullet(GameObject bulletObject) =>
+            bulletObject.SetActive(false);
+        private void DestroyBullet(GameObject bulletObject) =>
+            Object.Destroy(bulletObject);
     }
 }

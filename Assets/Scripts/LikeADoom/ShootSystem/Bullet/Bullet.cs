@@ -26,7 +26,6 @@ namespace LikeADoom.Shooting
 
         private void Recycle()
         {
-            print($"Recycling... {name}");
             Creator.Recycle(this);   
         }
 

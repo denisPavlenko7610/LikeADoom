@@ -26,7 +26,7 @@ namespace LikeADoom.Shooting
 
         public void Recycle(Bullet bullet)
         {
-            // TODO: Find a way to remove this bullet
+            Object.Destroy(bullet.gameObject);
         }
     }
 }
