@@ -39,9 +39,7 @@ namespace LikeADoom.Shooting
         {
             GameObject bulletObject = Object.Instantiate(_prefab, _parent, true);
             SetupBulletPosition(bulletObject);
-
-            Bullet bullet = bulletObject.GetComponent<Bullet>();
-            bullet.Creator = this;
+            var bullet = InitBullet(bulletObject);
             return bullet;
         }
 
@@ -67,6 +65,13 @@ namespace LikeADoom.Shooting
             Transform transform = bulletObject.transform;
             transform.position = _spawnPoint.position;
             transform.rotation = _rotationParent.rotation;
+        }
+
+        private Bullet InitBullet(GameObject bulletObject)
+        {
+            Bullet bullet = bulletObject.GetComponent<Bullet>();
+            bullet.Initialize(this);
+            return bullet;
         }
 
         private void EnableBullet(GameObject bulletObject) =>
