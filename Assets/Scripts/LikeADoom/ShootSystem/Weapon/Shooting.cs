@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace LikeADoom.Shooting
 {
     public class Shooting
@@ -13,9 +11,9 @@ namespace LikeADoom.Shooting
             _creator = creator;
         }
 
-        public void Shoot(Vector3 position)
+        public void Shoot()
         {
-            IBullet bullet = _creator.Create(position);
+            IBullet bullet = _creator.Create();
             bullet.Shoot(_movement);
         }
     }
