@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4840347439974517721, guid: 14475793050d2d54e9fdf09ab8a95320, type: 3}
-  _parent: {fileID: 7555732981187562063}
+  _parent: {fileID: 0}
   _spawnPoint: {fileID: 728825187}
   _cameraTransform: {fileID: 3405448975537456447}
   _speed: 15

@@ -9,16 +9,14 @@ namespace LikeADoom.Shooting
         public const int DefaultMaxSize = 100;
         
         private readonly Transform _spawnPoint;
-        private readonly Transform _rotationParent;
         private readonly IObjectPool<Bullet> _pool;
         private IBulletCreator _bulletFactory;
 
-        public BulletPool(IBulletCreator bulletFactory, Transform parent, Transform spawnPoint,
+        public BulletPool(IBulletCreator bulletFactory, Transform spawnPoint,
             int defaultCapacity = DefaultInitialCapacity, int maxSize = DefaultMaxSize)
         {
             _bulletFactory = bulletFactory;
             _spawnPoint = spawnPoint;
-            _rotationParent = parent;
             _pool = new ObjectPool<Bullet>(
                 OnCreateBullet,
                 OnGetBullet,
@@ -61,7 +59,7 @@ namespace LikeADoom.Shooting
         {
             Transform transform = bulletObject.transform;
             transform.position = _spawnPoint.position;
-            transform.rotation = _rotationParent.rotation;
+            transform.rotation = _spawnPoint.rotation;
         }
 
         private void EnableBullet(Bullet bulletObject) =>
