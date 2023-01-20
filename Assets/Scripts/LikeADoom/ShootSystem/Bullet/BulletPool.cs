@@ -8,23 +8,20 @@ namespace LikeADoom.Shooting
         public const int DefaultInitialCapacity = 10;
         public const int DefaultMaxSize = 100;
         
-        private readonly GameObject _prefab;
-        private readonly Transform _parent;
         private readonly Transform _spawnPoint;
         private readonly Transform _rotationParent;
         private readonly IObjectPool<Bullet> _pool;
+        private IBulletCreator _bulletFactory;
 
-        public BulletPool(
-            GameObject bulletPrefab, Transform parent, Transform spawnPoint, Transform rotationParentParent, 
+        public BulletPool(IBulletCreator bulletFactory, Transform parent, Transform spawnPoint,
             int defaultCapacity = DefaultInitialCapacity, int maxSize = DefaultMaxSize)
         {
-            _prefab = bulletPrefab;
-            _parent = parent;
+            _bulletFactory = bulletFactory;
             _spawnPoint = spawnPoint;
-            _rotationParent = rotationParentParent;
+            _rotationParent = parent;
             _pool = new ObjectPool<Bullet>(
-                OnCreateBullet, 
-                OnGetBullet, 
+                OnCreateBullet,
+                OnGetBullet,
                 OnReleaseBullet,
                 OnDestroyBullet,
                 collectionCheck: true,
@@ -32,53 +29,45 @@ namespace LikeADoom.Shooting
                 maxSize);
         }
 
-        public IBullet Create() => _pool.Get();
+        public Bullet Create() => _pool.Get();
         public void Recycle(Bullet bullet) => _pool.Release(bullet);
 
         private Bullet OnCreateBullet()
         {
-            GameObject bulletObject = Object.Instantiate(_prefab, _parent, true);
-            SetupBulletPosition(bulletObject);
-            var bullet = InitBullet(bulletObject);
+            Bullet bullet = _bulletFactory.Create();
+            SetupBulletPosition(bullet);
+            bullet.Initialize(this);
             return bullet;
         }
 
         private void OnGetBullet(Bullet bullet)
         {
-            GameObject bulletObject = bullet.gameObject;
+            Bullet bulletObject = bullet;
             SetupBulletPosition(bulletObject);
             EnableBullet(bulletObject);
         }
-        
+
         private void OnReleaseBullet(Bullet bullet)
         {
-            DisableBullet(bullet.gameObject);
+            DisableBullet(bullet);
         }
-        
+
         private void OnDestroyBullet(Bullet bullet)
         {
-            DestroyBullet(bullet.gameObject);
+            _bulletFactory.Recycle(bullet);
         }
-        
-        private void SetupBulletPosition(GameObject bulletObject)
+
+        private void SetupBulletPosition(Bullet bulletObject)
         {
             Transform transform = bulletObject.transform;
             transform.position = _spawnPoint.position;
             transform.rotation = _rotationParent.rotation;
         }
 
-        private Bullet InitBullet(GameObject bulletObject)
-        {
-            Bullet bullet = bulletObject.GetComponent<Bullet>();
-            bullet.Initialize(this);
-            return bullet;
-        }
+        private void EnableBullet(Bullet bulletObject) =>
+            bulletObject.gameObject.SetActive(true);
 
-        private void EnableBullet(GameObject bulletObject) =>
-            bulletObject.SetActive(true);
-        private void DisableBullet(GameObject bulletObject) =>
-            bulletObject.SetActive(false);
-        private void DestroyBullet(GameObject bulletObject) =>
-            Object.Destroy(bulletObject);
+        private void DisableBullet(Bullet bulletObject) =>
+            bulletObject.gameObject.SetActive(false);
     }
 }

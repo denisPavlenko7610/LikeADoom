@@ -6,15 +6,16 @@ namespace LikeADoom.Shooting
     {
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _parent;
-        [SerializeField] private Transform _spawnBullet;
+        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _cameraTransform;
-        [SerializeField, Range(0, 1000)] private float _speed;
+        [SerializeField, Range(1, 100)] private float _speed;
 
         private IBulletCreator _bulletCreator;
 
         private void Awake()
         {
-            _bulletCreator = new BulletPool(_prefab, _parent, _spawnBullet,_cameraTransform);
+            var bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
+            _bulletCreator = new BulletPool(bulletFactory, _parent, _spawnPoint );
         }
 
         private void Update()

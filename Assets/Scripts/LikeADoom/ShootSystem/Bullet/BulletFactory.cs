@@ -17,11 +17,11 @@ namespace LikeADoom.Shooting
             _cameraTransform = cameraTransform;
         }
 
-        public IBullet Create()
+        public Bullet Create()
         {
             GameObject cartridge = Object.Instantiate(_prefab, _spawnPoint.position, _cameraTransform.rotation);
             cartridge.transform.SetParent(_parent);
-            return cartridge.GetComponent<IBullet>();
+            return cartridge.GetComponent<Bullet>();
         }
 
         public void Recycle(Bullet bullet)
