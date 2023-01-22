@@ -4,7 +4,7 @@ using UnityEngine.Pool;
 
 namespace LikeADoom.Shooting
 {
-    public class BulletPool : IBulletFactory
+    public class Pool : IBulletFactory
     {
         private const int DefaultInitialCapacity = 10;
         private const int DefaultMaxSize = 100;
@@ -13,7 +13,7 @@ namespace LikeADoom.Shooting
         private readonly IObjectPool<IBullet> _pool;
         private readonly IBulletFactory _bulletFactory;
 
-        public BulletPool(IBulletFactory bulletFactory, Transform spawnPoint,
+        public Pool(IBulletFactory bulletFactory, Transform spawnPoint,
             int defaultCapacity = DefaultInitialCapacity, int maxSize = DefaultMaxSize)
         {
             _bulletFactory = bulletFactory;
@@ -43,9 +43,8 @@ namespace LikeADoom.Shooting
 
         private void OnGetBullet(IBullet bullet)
         {
-            IBullet bulletObject = bullet;
             bullet.SetupBulletPosition(_spawnPoint);
-            bulletObject.Enable();
+            bullet.Enable();
         }
 
         private void OnReleaseBullet(IBullet bullet)

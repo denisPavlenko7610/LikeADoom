@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace LikeADoom.Shooting
 {
-    public class BulletFactory : IBulletFactory
+    public class BulletBulletFactory : IBulletFactory
     {
         private readonly GameObject _prefab;
         private readonly Transform _parent;
         private readonly Transform _spawnPoint;
         private readonly Transform _cameraTransform;
 
-        public BulletFactory(GameObject prefab, Transform parent, Transform spawnPoint, Transform cameraTransform)
+        public BulletBulletFactory(GameObject prefab, Transform parent, Transform spawnPoint, Transform cameraTransform)
         {
             _prefab = prefab;
             _spawnPoint = spawnPoint;
@@ -22,11 +22,6 @@ namespace LikeADoom.Shooting
             GameObject cartridge = Object.Instantiate(_prefab, _spawnPoint.position, _cameraTransform.rotation);
             cartridge.transform.SetParent(_parent);
             return cartridge.GetComponent<Bullet>();
-        }
-
-        public void Recycle(IBullet bullet)
-        {
-            bullet.Destroy();
         }
     }
 }
