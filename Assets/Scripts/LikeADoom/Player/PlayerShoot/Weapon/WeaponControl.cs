@@ -10,12 +10,12 @@ namespace LikeADoom.Shooting
         [SerializeField] private Transform _cameraTransform;
         [SerializeField, Range(1, 100)] private float _speed;
 
-        private IBulletCreator _bulletCreator;
+        private BulletPool _bulletPool;
 
         private void Awake()
         {
-            var bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
-            _bulletCreator = new BulletPool(bulletFactory, _spawnPoint );
+            IBulletFactory bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
+            _bulletPool = new BulletPool(bulletFactory, _spawnPoint );
         }
 
         private void Update()
@@ -29,8 +29,7 @@ namespace LikeADoom.Shooting
         private void Shoot()
         {
             IShootPoint movement = new BulletMovement(Vector3.forward, _speed);
-
-            Shooting shooting = new Shooting(movement, _bulletCreator);
+            Shooting shooting = new Shooting(movement, _bulletPool);
             shooting.Shoot();
         }
     }

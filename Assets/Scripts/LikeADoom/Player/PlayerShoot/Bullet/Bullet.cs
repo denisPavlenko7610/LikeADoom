@@ -1,30 +1,39 @@
+using System;
 using System.Collections;
+using Dythervin.AutoAttach;
 using UnityEngine;
 
 namespace LikeADoom.Shooting
 {
-    public class Bullet : MonoBehaviour, IDestroy, IBullet
+    public class Bullet : MonoBehaviour, IBullet
     {
-        [SerializeField] private Transform _bulletTransform;
+        [SerializeField, Attach] private Transform _bulletTransform;
         [SerializeField] private float _destroyDelay = 3f;
+
+        public event Action OnBulletHit;
+        public event Action OnBulletTimeOver;
         
-        private IBulletCreator _creator;
         private Coroutine _destroyRoutine;
         private bool _isSetDestroy;
 
-        public void Initialize(IBulletCreator creator)
-        {
-            _creator = creator;
-        }
-        
+        public void Enable() => gameObject.SetActive(true);
+        public void Disable() => gameObject.SetActive(false);
+
         private void OnCollisionEnter(Collision other)
         {
             StopCoroutine(_destroyRoutine);
-            DestroyObject();
+            OnBulletHit?.Invoke();
         }
 
         public void Shoot(IShootPoint shootPointMovement) => 
             StartCoroutine(ShootRoutine(shootPointMovement));
+
+        public void SetupBulletPosition(Transform spawnPoint)
+        {
+            transform.position = spawnPoint.position;
+            transform.rotation = spawnPoint.rotation;
+        }
+        public void Destroy() => Destroy(gameObject);
 
         private IEnumerator ShootRoutine(IShootPoint shootPointDirection)
         {
@@ -37,16 +46,11 @@ namespace LikeADoom.Shooting
                 yield return null;
             }
         }
-        
+
         private IEnumerator RecycleAfterTimeoutRoutine(float timeoutInSeconds)
         {
             yield return new WaitForSeconds(timeoutInSeconds);
-            DestroyObject();
-        }
-
-        public void DestroyObject()
-        {
-            _creator.Recycle(this);
+            OnBulletTimeOver?.Invoke();
         }
     }
 }
