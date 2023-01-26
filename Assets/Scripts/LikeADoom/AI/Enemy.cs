@@ -6,8 +6,8 @@ namespace LikeADoom
     {
         [SerializeField] private int _health;
         [SerializeField] private int _damage;
-        [SerializeField] private float _aggroRadius;
-        [SerializeField] private float _attackDistance;
+        [SerializeField, Range(1f, 50f)] private float _aggroRadius;
+        [SerializeField, Range(1f, 50f)] private float _attackDistance;
         [SerializeField] private LayerMask _playerMask;
 
         private EnemyStateMachine _stateMachine;

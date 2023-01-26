@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2077798277217998922}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RotationFix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3740928704136337045}
   - component: {fileID: 2174524064112905474}
   - component: {fileID: 3831793458340582870}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7905637393970697019}
   - component: {fileID: 7917923792506912330}
   - component: {fileID: 501272095428974984}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CacoDaemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

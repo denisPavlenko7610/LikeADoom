@@ -29,7 +29,7 @@ namespace LikeADoom
 
         public void SpawnEnemy()
         {
-            Enemy enemy = _factory.CreateAt(_spawnPoint.position, Quaternion.identity);
+            Enemy enemy = _factory.CreateAt(_spawnPoint.position, _spawnPoint.rotation);
             _enemies.Add(enemy);
         }
     }
