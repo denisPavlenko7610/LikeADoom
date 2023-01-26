@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace LikeADoom
 {
@@ -9,19 +10,22 @@ namespace LikeADoom
 
         private List<Enemy> _enemies;
 
-        private void Awake()
+        [Inject]
+        public void Initialize(Player player)
         {
             _enemies = new List<Enemy>();
+            _factory.Initialize(player.transform);
+            
             SpawnEnemy();
         }
-
+        
         private void Update()
         {
             foreach (var enemy in _enemies)
                 enemy.Act();
         }
 
-        private void SpawnEnemy()
+        public void SpawnEnemy()
         {
             Enemy enemy = _factory.Create();
             _enemies.Add(enemy);

@@ -5,12 +5,21 @@ namespace LikeADoom
     public class EnemyFactory : MonoBehaviour
     {
         [SerializeField] private Enemy _prefab;
-        [SerializeField] private Transform _player;
         [SerializeField] private Transform _spawnPoint;
 
-        public Enemy Create()
+        private Transform _player;
+        
+        public void Initialize(Transform player)
         {
-            Enemy enemy = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
+            _player = player;
+        }
+
+        public Enemy Create() => 
+            CreateAt(_spawnPoint.position, Quaternion.identity);
+
+        public Enemy CreateAt(Vector3 position, Quaternion rotation)
+        {
+            Enemy enemy = Instantiate(_prefab, position, rotation);
             enemy.Initialize(_player);
             return enemy;
         }
