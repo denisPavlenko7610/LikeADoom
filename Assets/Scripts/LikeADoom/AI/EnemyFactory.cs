@@ -2,24 +2,20 @@ using UnityEngine;
 
 namespace LikeADoom
 {
-    public class EnemyFactory : MonoBehaviour
+    public class EnemyFactory 
     {
-        [SerializeField] private Enemy _prefab;
-        [SerializeField] private Transform _spawnPoint;
-
-        private Transform _player;
+        private readonly Enemy _prefab;
+        private readonly Transform _player;
         
-        public void Initialize(Transform player)
+        public EnemyFactory(Enemy prefab, Transform player)
         {
+            _prefab = prefab;
             _player = player;
         }
 
-        public Enemy Create() => 
-            CreateAt(_spawnPoint.position, Quaternion.identity);
-
         public Enemy CreateAt(Vector3 position, Quaternion rotation)
         {
-            Enemy enemy = Instantiate(_prefab, position, rotation);
+            Enemy enemy = Object.Instantiate(_prefab, position, rotation);
             enemy.Initialize(_player);
             return enemy;
         }

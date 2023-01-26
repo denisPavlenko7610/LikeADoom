@@ -186,8 +186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _damage: 10
-  _aggroRadius: 10
-  _attackDistance: 5
+  _aggroRadius: 23
+  _attackDistance: 11
   _playerMask:
     serializedVersion: 2
     m_Bits: 64

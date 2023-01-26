@@ -6,15 +6,17 @@ namespace LikeADoom
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private EnemyFactory _factory;
+        [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private Transform _spawnPoint;
 
+        private EnemyFactory _factory;
         private List<Enemy> _enemies;
 
         [Inject]
         public void Initialize(Player player)
         {
             _enemies = new List<Enemy>();
-            _factory.Initialize(player.transform);
+            _factory = new EnemyFactory(_enemyPrefab, player.transform);
             
             SpawnEnemy();
         }
@@ -27,7 +29,7 @@ namespace LikeADoom
 
         public void SpawnEnemy()
         {
-            Enemy enemy = _factory.Create();
+            Enemy enemy = _factory.CreateAt(_spawnPoint.position, Quaternion.identity);
             _enemies.Add(enemy);
         }
     }

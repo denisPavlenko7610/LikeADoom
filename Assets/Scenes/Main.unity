@@ -665,53 +665,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 677491330132632554, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
   m_PrefabInstance: {fileID: 1888178509}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &853546555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 853546556}
-  - component: {fileID: 853546557}
-  m_Layer: 0
-  m_Name: EnemyFactory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &853546556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853546555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2122485753}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &853546557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853546555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa746f6c5094bb383b6df061a8806ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 501272095428974984, guid: 0ce42a867bca5af4fa78b0e96faad220, type: 3}
-  _player: {fileID: 3405729105312834271, guid: fa88194630a601d498b56b3ac66e5bc5, type: 3}
-  _spawnPoint: {fileID: 312116625}
 --- !u!1 &884835642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,10 +1368,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1837356403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb998a8c640f454b83c3579d6eb38a13, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e40370e537435f4083b7d5c5fd446e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _factory: {fileID: 853546557}
+  _enemyPrefab: {fileID: 501272095428974984, guid: 0ce42a867bca5af4fa78b0e96faad220, type: 3}
+  _spawnPoint: {fileID: 312116625}
 --- !u!1 &1866340895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1598,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1837356404}
-  - {fileID: 853546556}
   - {fileID: 312116625}
   - {fileID: 543450653262054788}
   m_Father: {fileID: 1461983789}
