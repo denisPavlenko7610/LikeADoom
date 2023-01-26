@@ -6,14 +6,29 @@ namespace LikeADoom
     {
         [SerializeField] private int _health;
         [SerializeField] private int _damage;
+        [SerializeField] private float _aggroRadius;
+        [SerializeField] private float _attackDistance;
+        [SerializeField] private LayerMask _playerMask;
 
         private EnemyStateMachine _stateMachine;
 
-        public void Initialize(EnemyConfig config, Transform target)
+        public void Initialize(Transform target)
         {
-            _stateMachine = new EnemyStateMachine(config, transform, target);
+            EnemyStats stats = new(_health, _damage, _aggroRadius, _attackDistance, _playerMask);
+            _stateMachine = new EnemyStateMachine(stats, transform, target);
         }
 
         public void Act() => _stateMachine.Act();
+
+        private void OnDrawGizmos()
+        {
+            var position = transform.position;
+            
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(position, _aggroRadius);
+            
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(position, _attackDistance);
+        }
     }
 }
