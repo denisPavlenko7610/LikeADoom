@@ -4,7 +4,7 @@ using Zenject;
 
 namespace LikeADoom
 {
-    public class EnemySystem : MonoBehaviour
+    public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private EnemyFactory _factory;
 

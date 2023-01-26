@@ -710,8 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 501272095428974984, guid: 0ce42a867bca5af4fa78b0e96faad220, type: 3}
-  _config: {fileID: 11400000, guid: 6919f8a3187c18c43a1a54c932f7854f, type: 2}
-  _player: {fileID: 2039326039}
+  _player: {fileID: 3405729105312834271, guid: fa88194630a601d498b56b3ac66e5bc5, type: 3}
   _spawnPoint: {fileID: 312116625}
 --- !u!1 &884835642
 GameObject:
@@ -1584,59 +1583,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
---- !u!1 &2039326038
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2039326039}
-  - component: {fileID: 2039326040}
-  m_Layer: 6
-  m_Name: PlayerMock
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2039326039
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039326038}
-  m_LocalRotation: {x: -0.15185118, y: 0.40582836, z: -0.068581946, w: -0.89863294}
-  m_LocalPosition: {x: 31.77, y: 17.56, z: 9.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2122485753}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2039326040
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039326038}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2112627549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1645,6 @@ Transform:
   m_Children:
   - {fileID: 1837356404}
   - {fileID: 853546556}
-  - {fileID: 2039326039}
   - {fileID: 312116625}
   - {fileID: 543450653262054788}
   m_Father: {fileID: 1461983789}
