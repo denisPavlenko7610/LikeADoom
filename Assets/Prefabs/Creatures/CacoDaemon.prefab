@@ -186,8 +186,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _damage: 10
+  _moveSpeed: 3
   _aggroRadius: 23
   _attackDistance: 11
+  _attackCooldownSeconds: 3
+  _projectileSpeed: 2.96
+  _projectilePrefab: {fileID: 4840347439974517721, guid: 51a49f0cf2086d342adb894cbff8a033, type: 3}
   _playerMask:
     serializedVersion: 2
     m_Bits: 64
