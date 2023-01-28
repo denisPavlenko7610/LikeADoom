@@ -21,20 +21,9 @@ namespace LikeADoom
         {
             var size = Physics.OverlapSphereNonAlloc(Transform.position, _checkRadius, _buffer, _checkMask);
             
-            Debug.Log($"Size: {size}");
             for (int i = 0; i < size; i++)
-                Debug.Log($"Collider: {_buffer[i].name}");
-
-            for (int i = 0; i < size; i++)
-            {
                 if (_buffer[i].transform == Target)
-                {
                     StateSwitcher.SwitchTo(EnemyStates.Chase);
-                    Debug.Log("Found a target!");
-                }
-                
-                Debug.Log("Found something, but not a target!");
-            }
         }
     }
 }
