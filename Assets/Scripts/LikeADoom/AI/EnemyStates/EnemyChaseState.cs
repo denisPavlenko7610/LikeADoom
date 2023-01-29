@@ -6,28 +6,25 @@ namespace LikeADoom
     {
         private readonly float _chaseDistance;
         private readonly float _attackDistance;
-        private readonly float _chaseSpeed;
+        private readonly EnemyMovement _movement;
 
-        public EnemyChaseState(IEnemyStateSwitcher switcher, Transform transform, Transform target, float chaseDistance, float attackDistance, float chaseSpeed) 
+        public EnemyChaseState(IEnemyStateSwitcher switcher, Transform transform, Transform target, float chaseDistance, float attackDistance, EnemyMovement movement) 
             : base(switcher, transform, target)
         {
             _chaseDistance = chaseDistance;
             _attackDistance = attackDistance;
-            _chaseSpeed = chaseSpeed;
+            _movement = movement;
         }
 
         public override void Act()
         {
-            Transform.LookAt(Target);
-
             float distance = Vector3.Distance(Transform.position, Target.position);
             if (distance >= _chaseDistance)
                 StateSwitcher.SwitchTo(EnemyStates.Idle);
             else if (distance < _attackDistance)
                 StateSwitcher.SwitchTo(EnemyStates.Attacking);
 
-            Vector3 translation = Transform.forward * (Time.deltaTime * _chaseSpeed);
-            Transform.Translate(translation, Space.World);
+            _movement.MoveTo(Target);
         }
     }
 }
