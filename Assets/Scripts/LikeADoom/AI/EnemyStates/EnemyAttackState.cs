@@ -26,7 +26,7 @@ namespace LikeADoom
         ) 
             : base(switcher, transform, target)
         {
-            IBulletFactory factory = new BulletBulletFactory(projectilePrefab, Transform, Transform, Transform);
+            IBulletFactory factory = new BulletFactory(projectilePrefab, Transform, Transform, Transform);
             _pool = new BulletPool(factory, Transform, PoolInitialCapacity, PoolMaximumCapacity);
             _attackDistance = attackDistance;
             _attackCooldownSeconds = attackCooldownSeconds;
