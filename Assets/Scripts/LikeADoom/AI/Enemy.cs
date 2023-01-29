@@ -10,8 +10,6 @@ namespace LikeADoom
         [SerializeField, Range(0.1f, 10f)] private float _moveSpeed;
         [SerializeField, Range(1f, 50f)] private float _aggroRadius;
         [SerializeField, Range(1f, 50f)] private float _attackDistance;
-        [SerializeField, Range(0.01f, 3f)] private float _attackCooldownSeconds;
-        [SerializeField, Range(0.1f, 10f)] private float _projectileSpeed;
         [SerializeField] private LayerMask _playerMask;
 
         private EnemyAttack _enemyAttack;
@@ -21,6 +19,7 @@ namespace LikeADoom
         {
             EnemyStats stats = new(_health, _damage, _moveSpeed, _aggroRadius, _attackDistance, _playerMask);
             _enemyAttack = GetComponent<EnemyAttack>();
+            _enemyAttack.Initialize();
             _stateMachine = new EnemyStateMachine(stats, transform, target, _enemyAttack);
         }
 

@@ -23,9 +23,6 @@ namespace LikeADoom
 
         public void Attack()
         {
-            if (_pool == null)
-                Initialize();
-            
             IBullet bullet = _pool.Create();
             IShootPoint movement = new BulletMovement(Vector3.forward, _projectileSpeed);
             bullet.Shoot(movement);
