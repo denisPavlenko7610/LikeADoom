@@ -5,32 +5,22 @@ namespace LikeADoom
 {
     public class EnemyAttackState : EnemyState
     {
+        private readonly EnemyAttack _attack;
         private readonly float _attackDistance;
-        private readonly float _attackCooldownSeconds;
-        private readonly float _projectileSpeed;
-        private readonly BulletPool _pool;
 
         private float _timePassed;
-
-        private const int PoolInitialCapacity = 5;
-        private const int PoolMaximumCapacity = 20;
 
         public EnemyAttackState(
             IEnemyStateSwitcher switcher, 
             Transform transform, 
             Transform target,
-            GameObject projectilePrefab,
-            float attackDistance, 
-            float attackCooldownSeconds,
-            float projectileSpeed
+            EnemyAttack attack,
+            float attackDistance
         ) 
             : base(switcher, transform, target)
         {
-            IBulletFactory factory = new BulletFactory(projectilePrefab, Transform, Transform, Transform);
-            _pool = new BulletPool(factory, Transform, PoolInitialCapacity, PoolMaximumCapacity);
+            _attack = attack;
             _attackDistance = attackDistance;
-            _attackCooldownSeconds = attackCooldownSeconds;
-            _projectileSpeed = projectileSpeed;
         }
 
         public override void Enter() => _timePassed = 0;
@@ -43,22 +33,15 @@ namespace LikeADoom
             if (Vector3.Distance(Transform.position, Target.position) >= _attackDistance)
                 StateSwitcher.SwitchTo(EnemyStates.Chase);
 
-            if (_timePassed >= _attackCooldownSeconds)
+            if (_timePassed >= _attack.Cooldown)
             {
-                Attack();
+                _attack.Attack();
                 _timePassed = 0;
             }
             else
             {
                 _timePassed += Time.deltaTime;
             }
-        }
-
-        private void Attack()
-        {
-            IBullet bullet = _pool.Create();
-            IShootPoint movement = new BulletMovement(Vector3.forward, _projectileSpeed);
-            bullet.Shoot(movement);
         }
     }
 }

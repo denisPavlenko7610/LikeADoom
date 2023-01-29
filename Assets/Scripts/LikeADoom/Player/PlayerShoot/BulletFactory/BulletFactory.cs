@@ -9,6 +9,9 @@ namespace LikeADoom.Shooting
         private readonly Transform _spawnPoint;
         private readonly Transform _rotation;
 
+        public BulletFactory(GameObject prefab, Transform parent, Transform spawnPoint)
+            : this(prefab, parent, spawnPoint, spawnPoint) { }
+        
         public BulletFactory(GameObject prefab, Transform parent, Transform spawnPoint, Transform rotation)
         {
             _prefab = prefab;

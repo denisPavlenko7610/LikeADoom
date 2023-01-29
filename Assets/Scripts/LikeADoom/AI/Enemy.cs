@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace LikeADoom
 {
+    [RequireComponent(typeof(EnemyAttack))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private int _health;
@@ -11,15 +12,16 @@ namespace LikeADoom
         [SerializeField, Range(1f, 50f)] private float _attackDistance;
         [SerializeField, Range(0.01f, 3f)] private float _attackCooldownSeconds;
         [SerializeField, Range(0.1f, 10f)] private float _projectileSpeed;
-        [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private LayerMask _playerMask;
 
+        private EnemyAttack _enemyAttack;
         private EnemyStateMachine _stateMachine;
 
         public void Initialize(Transform target)
         {
-            EnemyStats stats = new(_health, _damage, _moveSpeed, _aggroRadius, _attackDistance, _attackCooldownSeconds, _projectileSpeed, _playerMask);
-            _stateMachine = new EnemyStateMachine(stats, transform, target, _projectilePrefab);
+            EnemyStats stats = new(_health, _damage, _moveSpeed, _aggroRadius, _attackDistance, _playerMask);
+            _enemyAttack = GetComponent<EnemyAttack>();
+            _stateMachine = new EnemyStateMachine(stats, transform, target, _enemyAttack);
         }
 
         public void Act() => _stateMachine.Act();

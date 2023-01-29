@@ -8,11 +8,11 @@ namespace LikeADoom
         private readonly Dictionary<EnemyStates, EnemyState> _states;
         private EnemyState _currentState;
 
-        public EnemyStateMachine(EnemyStats stats, Transform transform, Transform target, GameObject projectilePrefab)
+        public EnemyStateMachine(EnemyStats stats, Transform transform, Transform target, EnemyAttack attack)
         {
             EnemyIdleState idleState = new(this, transform, target, stats.AggroRadius, stats.PlayerMask);
             EnemyChaseState chaseState = new(this, transform, target, stats.AggroRadius, stats.AttackDistance, stats.MoveSpeed);
-            EnemyAttackState attackState = new(this, transform, target, projectilePrefab, stats.AttackDistance, stats.AttackCooldown, stats.ProjectileSpeed);
+            EnemyAttackState attackState = new(this, transform, target, attack, stats.AttackDistance);
 
             _states = new Dictionary<EnemyStates, EnemyState>()
             {

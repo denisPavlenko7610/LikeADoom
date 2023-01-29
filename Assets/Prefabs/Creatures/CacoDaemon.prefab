@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 7905637393970697019}
   - component: {fileID: 7917923792506912330}
   - component: {fileID: 501272095428974984}
+  - component: {fileID: 5440361095816646638}
   m_Layer: 7
   m_Name: CacoDaemon
   m_TagString: Untagged
@@ -191,7 +192,21 @@ MonoBehaviour:
   _attackDistance: 11
   _attackCooldownSeconds: 3
   _projectileSpeed: 2.96
-  _projectilePrefab: {fileID: 4840347439974517721, guid: 51a49f0cf2086d342adb894cbff8a033, type: 3}
   _playerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5440361095816646638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421272472287922561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd181d0a61e04f1c874226a60819d322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 4840347439974517721, guid: 51a49f0cf2086d342adb894cbff8a033, type: 3}
+  _projectileSpeed: 3
+  _cooldown: 2
