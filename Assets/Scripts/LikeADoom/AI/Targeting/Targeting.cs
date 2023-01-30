@@ -18,7 +18,7 @@ namespace LikeADoom
         public void Start() => _checker.StartChecking();
         public bool IsTargetClose => IsTargetAtDistance(DistanceChecker.Distance.Close);
         public bool IsTargetAtMediumDistance => IsTargetAtDistance(DistanceChecker.Distance.Medium);
-        public bool IsTargetAtMediumDistanceOrClose => IsTargetCloserOrAt(DistanceChecker.Distance.Medium);
+        public bool IsTargetAtMediumDistanceOrCloser => IsTargetCloserOrAt(DistanceChecker.Distance.Medium);
         public bool IsTargetAtMediumDistanceOrFurther => IsTargetFurtherOrAt(DistanceChecker.Distance.Medium);
         public bool IsTargetFar => IsTargetAtDistance(DistanceChecker.Distance.Far);
 

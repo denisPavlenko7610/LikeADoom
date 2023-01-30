@@ -11,7 +11,7 @@ namespace LikeADoom
         
         public override void Act()
         {
-            if (Targeting.IsTargetAtMediumDistanceOrClose)
+            if (Targeting.IsTargetAtMediumDistanceOrCloser)
                 StateSwitcher.SwitchTo(EnemyStates.Chase);
         }
     }
