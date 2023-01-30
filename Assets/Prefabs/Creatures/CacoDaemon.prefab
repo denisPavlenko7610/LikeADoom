@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 4840347439974517721, guid: 51a49f0cf2086d342adb894cbff8a033, type: 3}
   _shootPoint: {fileID: 1695790219566085534}
-  _projectileSpeed: 3
+  _projectileSpeed: 5
   _cooldown: 2
 --- !u!114 &8165457533946725016
 MonoBehaviour:
@@ -282,7 +282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _hoverSpeed: 10
   _hoverHeight: 2
   _correctionDelta: 0.1
   _hoverCheckStart: {fileID: 5938838533300581543}
@@ -302,6 +301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distances:
-  - 14
-  - 25
+  - 13
+  - 26
   _delayBetweenChecksSeconds: 0.1
