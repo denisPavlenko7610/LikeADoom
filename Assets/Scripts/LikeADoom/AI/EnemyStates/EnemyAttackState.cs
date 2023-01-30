@@ -11,10 +11,10 @@ namespace LikeADoom
         public EnemyAttackState(
             IEnemyStateSwitcher switcher, 
             Transform transform, 
-            Transform target,
+            Targeting targeting,
             EnemyAttack attack
         ) 
-            : base(switcher, transform, target)
+            : base(switcher, transform, targeting)
         {
             _attack = attack;
         }
@@ -24,7 +24,7 @@ namespace LikeADoom
 
         public override void Act()
         {
-            _attack.ShootPoint.LookAt(Target);
+            _attack.ShootPoint.LookAt(Targeting.Target);
             Transform.forward = _attack.ShootPoint.forward;
             
             if (_timePassed >= _attack.Cooldown)
@@ -36,6 +36,9 @@ namespace LikeADoom
             {
                 _timePassed += Time.deltaTime;
             }
+            
+            if (Targeting.IsTargetAtMediumDistance)
+                StateSwitcher.SwitchTo(EnemyStates.Chase);
         }
     }
 }

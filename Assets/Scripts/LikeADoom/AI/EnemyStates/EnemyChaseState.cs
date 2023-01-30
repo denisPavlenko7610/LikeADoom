@@ -6,15 +6,20 @@ namespace LikeADoom
     {
         private readonly EnemyMovement _movement;
 
-        public EnemyChaseState(IEnemyStateSwitcher switcher, Transform transform, Transform target, EnemyMovement movement) 
-            : base(switcher, transform, target)
+        public EnemyChaseState(IEnemyStateSwitcher switcher, Transform transform, Targeting targeting, EnemyMovement movement) 
+            : base(switcher, transform, targeting)
         {
             _movement = movement;
         }
 
         public override void Act()
         {
-            _movement.MoveTo(Target);
+            _movement.MoveTo(Targeting.Target);
+            
+            if (Targeting.IsTargetClose)
+                StateSwitcher.SwitchTo(EnemyStates.Attacking);
+            else if (Targeting.IsTargetFar)
+                StateSwitcher.SwitchTo(EnemyStates.Idle);
         }
     }
 }

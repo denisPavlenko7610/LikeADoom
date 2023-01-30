@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace LikeADoom
@@ -9,7 +8,6 @@ namespace LikeADoom
         [SerializeField] private int _health;
         [SerializeField] private int _damage;
 
-        private DistanceChecker _checker;
         private EnemyStateMachine _stateMachine;
 
         public void Initialize(Transform target)
@@ -17,38 +15,15 @@ namespace LikeADoom
             EnemyAttack attack = GetComponent<EnemyAttack>();
             EnemyMovement movement = GetComponent<EnemyMovement>();
             DistanceChecker checker = GetComponent<DistanceChecker>();
-            attack.Initialize();
-            checker.Initialize(target);
+            Targeting targeting = new Targeting(target, checker);
             
-            _stateMachine = new EnemyStateMachine(transform, target, attack, movement);
-            _checker = checker;
-            _checker.OnReachDistance += SwitchState;
-            _checker.StartChecking();
-        }
-        
-        private void OnDestroy()
-        {
-            _checker.OnReachDistance -= SwitchState;
+            attack.Initialize();
+            
+            _stateMachine = new EnemyStateMachine(transform, targeting, attack, movement);
+            
+            targeting.Start();
         }
         
         public void Act() => _stateMachine.Act();
-
-        private void SwitchState(DistanceChecker.Distance distance)
-        {
-            switch (distance)
-            {
-                case DistanceChecker.Distance.Closest:
-                    _stateMachine.SwitchTo(EnemyStates.Attacking);
-                    break;
-                case DistanceChecker.Distance.Close:
-                    _stateMachine.SwitchTo(EnemyStates.Chase);
-                    break;
-                case DistanceChecker.Distance.Medium:
-                    _stateMachine.SwitchTo(EnemyStates.Idle);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(distance), distance, null);
-            }
-        }
     }
 }

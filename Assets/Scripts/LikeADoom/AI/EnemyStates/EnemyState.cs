@@ -6,13 +6,13 @@ namespace LikeADoom
     {
         protected readonly IEnemyStateSwitcher StateSwitcher;
         protected readonly Transform Transform;
-        protected readonly Transform Target;
+        protected readonly Targeting Targeting;
 
-        protected EnemyState(IEnemyStateSwitcher stateSwitcher ,Transform transform, Transform target)
+        protected EnemyState(IEnemyStateSwitcher stateSwitcher, Transform transform, Targeting targeting)
         {
             StateSwitcher = stateSwitcher;
             Transform = transform;
-            Target = target;
+            Targeting = targeting;
         }
 
         public abstract void Act();

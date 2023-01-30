@@ -12,29 +12,30 @@ namespace LikeADoom
         private static readonly Color[] _distanceColors = { Color.red, Color.yellow, Color.green, Color.cyan };
 
         private Transform _target;
-        private Distance _current = Distance.ExtremelyFar;
+        private Distance _current = Distance.OutOfRange;
         
         public enum Distance
         {
-            Closest,
             Close,
             Medium,
             Far,
-            ExtremelyFar,
+            OutOfRange,
         }
         
-        public event Action<Distance> OnReachDistance;
+        public event Action<Distance> OnDistanceReached;
 
         private void OnValidate()
         {
-            if (_distances.Length > 4)
-                throw new ArgumentException("No support for 5 and more distances!");
+            if (_distances.Length > 3)
+                throw new ArgumentException("No support for 4 and more distances!");
         }
 
-        public void Initialize(Transform target)
+        public void SetTarget(Transform target)
         {
             _target = target;
         }
+
+        public Distance GetDistance() => _current;
 
         public void StartChecking()
         {
@@ -45,17 +46,17 @@ namespace LikeADoom
         {
             while (true)
             {
-                Distance newDistance = Check();
-                if (_current != newDistance)
+                Distance currentDistance = GetCurrentDistance();
+                if (_current != currentDistance)
                 {
-                    _current = newDistance;
-                    OnReachDistance?.Invoke(newDistance);
+                    _current = currentDistance;
+                    OnDistanceReached?.Invoke(currentDistance);
                 }
                 yield return new WaitForSeconds(_delayBetweenChecksSeconds);
             }
         }
 
-        private Distance Check()
+        private Distance GetCurrentDistance()
         {
             float distance = Vector3.Distance(transform.position, _target.position);
             for (int i = 0; i < _distances.Length; i++)
