@@ -15,8 +15,8 @@ namespace LikeADoom
         [Inject]
         public void Initialize(Player player, IPlayerTransformProvider provider)
         {
-            _enemies = new List<Enemy>();
             _factory = new EnemyFactory(_enemyPrefab, provider.Transform);
+            _enemies = new List<Enemy>();
             
             SpawnEnemy();
         }

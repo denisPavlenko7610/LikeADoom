@@ -17,8 +17,6 @@ namespace LikeADoom
             DistanceChecker checker = GetComponent<DistanceChecker>();
             Targeting targeting = new Targeting(target, checker);
             
-            attack.Initialize();
-            
             _stateMachine = new EnemyStateMachine(transform, targeting, attack, movement);
             
             targeting.Start();

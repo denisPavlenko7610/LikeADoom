@@ -37,7 +37,7 @@ namespace LikeADoom
                 _timePassed += Time.deltaTime;
             }
             
-            if (Targeting.IsTargetAtMediumDistance)
+            if (Targeting.IsTargetAtMediumDistanceOrFurther)
                 StateSwitcher.SwitchTo(EnemyStates.Chase);
         }
     }

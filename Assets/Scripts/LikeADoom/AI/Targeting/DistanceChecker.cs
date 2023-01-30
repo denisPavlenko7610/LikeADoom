@@ -22,36 +22,15 @@ namespace LikeADoom
             OutOfRange,
         }
         
-        public event Action<Distance> OnDistanceReached;
-
-        private void OnValidate()
-        {
-            if (_distances.Length > 3)
-                throw new ArgumentException("No support for 4 and more distances!");
-        }
-
-        public void SetTarget(Transform target)
-        {
-            _target = target;
-        }
-
+        public void SetTarget(Transform target) => _target = target;
         public Distance GetDistance() => _current;
 
-        public void StartChecking()
-        {
-            StartCoroutine(CheckRoutine());
-        }
-
+        public void StartChecking() => StartCoroutine(CheckRoutine());
         private IEnumerator CheckRoutine()
         {
             while (true)
             {
-                Distance currentDistance = GetCurrentDistance();
-                if (_current != currentDistance)
-                {
-                    _current = currentDistance;
-                    OnDistanceReached?.Invoke(currentDistance);
-                }
+                _current = GetCurrentDistance();
                 yield return new WaitForSeconds(_delayBetweenChecksSeconds);
             }
         }
@@ -64,6 +43,12 @@ namespace LikeADoom
                     return (Distance)i;
 
             return (Distance)_distances.Length;
+        }
+
+        private void OnValidate()
+        {
+            if (_distances.Length > 3)
+                throw new ArgumentException("No support for 4 and more distances!");
         }
 
         private void OnDrawGizmos()

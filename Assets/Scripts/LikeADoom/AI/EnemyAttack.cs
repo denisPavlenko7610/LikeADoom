@@ -17,7 +17,7 @@ namespace LikeADoom
         public float Cooldown => _cooldown;
         public Transform ShootPoint => _shootPoint;
 
-        public void Initialize()
+        private void Awake()
         {
             IBulletFactory factory = new BulletFactory(_projectilePrefab, null, _shootPoint);
             _pool = new BulletPool(factory, _shootPoint, InitialPoolCapacity, MaxPoolCapacity);
