@@ -6,6 +6,7 @@ namespace LikeADoom
     public class EnemyAttack : MonoBehaviour
     {
         [SerializeField] private GameObject _projectilePrefab;
+        [SerializeField] private Transform _shootPoint;
         [SerializeField, Range(0.1f, 10f)] private float _projectileSpeed;
         [SerializeField, Range(0.01f, 5f)] private float _cooldown;
 
@@ -14,11 +15,12 @@ namespace LikeADoom
         private BulletPool _pool;
 
         public float Cooldown => _cooldown;
+        public Transform ShootPoint => _shootPoint;
 
         public void Initialize()
         {
-            IBulletFactory factory = new BulletFactory(_projectilePrefab, null, transform);
-            _pool = new BulletPool(factory, transform, InitialPoolCapacity, MaxPoolCapacity);
+            IBulletFactory factory = new BulletFactory(_projectilePrefab, null, _shootPoint);
+            _pool = new BulletPool(factory, _shootPoint, InitialPoolCapacity, MaxPoolCapacity);
         }
 
         public void Attack()

@@ -24,7 +24,8 @@ namespace LikeADoom
 
         public override void Act()
         {
-            Transform.LookAt(Target);
+            _attack.ShootPoint.LookAt(Target);
+            Transform.forward = _attack.ShootPoint.forward;
             
             if (_timePassed >= _attack.Cooldown)
             {
