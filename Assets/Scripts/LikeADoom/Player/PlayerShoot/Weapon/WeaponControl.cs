@@ -14,7 +14,7 @@ namespace LikeADoom.Shooting
 
         private void Awake()
         {
-            IBulletFactory bulletFactory = new BulletBulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
+            IBulletFactory bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
             _bulletPool = new BulletPool(bulletFactory, _spawnPoint );
         }
 

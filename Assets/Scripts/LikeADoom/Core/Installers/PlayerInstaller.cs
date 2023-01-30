@@ -14,7 +14,9 @@ namespace LikeADoom
         {
             var playerInstance = Container.InstantiatePrefabForComponent<Player>(_playerPrefab.gameObject,
                 _spawnPosition.position, Quaternion.identity, _parentRoot);
+            
             Container.Bind<Player>().FromInstance(playerInstance).AsSingle().NonLazy();
+            Container.BindInterfacesTo<ElevatedPlayerPosition>().FromNew().AsSingle();
         }
     }
 }
