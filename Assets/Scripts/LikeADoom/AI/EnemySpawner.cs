@@ -13,10 +13,10 @@ namespace LikeADoom
         private List<Enemy> _enemies;
 
         [Inject]
-        public void Initialize(Player player)
+        public void Initialize(Player player, IPlayerTransformProvider provider)
         {
             _enemies = new List<Enemy>();
-            _factory = new EnemyFactory(_enemyPrefab, player.transform);
+            _factory = new EnemyFactory(_enemyPrefab, provider.Transform);
             
             SpawnEnemy();
         }
