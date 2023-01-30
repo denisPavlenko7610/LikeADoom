@@ -14,7 +14,7 @@ namespace LikeADoom
 
         public override void Act()
         {
-            _movement.MoveTo(Targeting.Target);
+            _movement.HoverTo(Targeting.Target);
             
             if (Targeting.IsTargetClose)
                 StateSwitcher.SwitchTo(EnemyStates.Attacking);
