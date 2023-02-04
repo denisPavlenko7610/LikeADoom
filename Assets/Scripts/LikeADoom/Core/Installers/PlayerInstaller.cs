@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace LikeADoom
+namespace LikeADoom.LikeADoom.Core.Installers
 {
     public class PlayerInstaller : MonoInstaller
     {

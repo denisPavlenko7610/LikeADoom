@@ -253,6 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _damage: 10
+  _attack: {fileID: 5440361095816646638}
+  _movement: {fileID: 8165457533946725016}
+  _checker: {fileID: 5357699821513562746}
 --- !u!114 &5440361095816646638
 MonoBehaviour:
   m_ObjectHideFlags: 0

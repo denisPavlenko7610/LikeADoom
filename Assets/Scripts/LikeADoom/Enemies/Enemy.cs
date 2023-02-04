@@ -8,17 +8,16 @@ namespace LikeADoom
     {
         [SerializeField] private int _health;
         [SerializeField] private int _damage;
+        [SerializeField] private EnemyAttack _attack;
+        [SerializeField] private EnemyMovement _movement;
+        [SerializeField] private DistanceChecker _checker;
 
         private EnemyStateMachine _stateMachine;
 
         public void Initialize(Transform target)
         {
-            EnemyAttack attack = GetComponent<EnemyAttack>();
-            EnemyMovement movement = GetComponent<EnemyMovement>();
-            DistanceChecker checker = GetComponent<DistanceChecker>();
-            Targeting targeting = new Targeting(target, checker);
-            
-            _stateMachine = new EnemyStateMachine(transform, targeting, attack, movement);
+            Targeting targeting = new Targeting(target, _checker);
+            _stateMachine = new EnemyStateMachine(transform, targeting, _attack, _movement);
             
             targeting.Start();
         }

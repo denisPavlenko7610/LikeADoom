@@ -30,9 +30,9 @@ namespace LikeADoom
 
         private DistanceTypes GetCurrentDistance()
         {
-            float distance = Vector3.Distance(transform.position, _target.position);
+            float distance = (transform.position - _target.position).sqrMagnitude;
             for (int i = 0; i < _distances.Length; i++)
-                if (distance < _distances[i])
+                if (distance < _distances[i] * _distances[i])
                     return (DistanceTypes)i;
 
             return (DistanceTypes)_distances.Length;
