@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 
 namespace LikeADoom
@@ -11,27 +12,40 @@ namespace LikeADoom
         [SerializeField] private LayerMask _groundMask;
 
         private const float MaxHoverRayDistance = 100f;
-        
+
         public void HoverTo(Transform target)
         {
             transform.LookAt(target);
 
             Vector3 translation = transform.forward * (Time.deltaTime * _speed);
             
+            RaycastHit[] results = new RaycastHit[1];
+
             Ray ray = new Ray(_hoverCheckStart.position, Vector3.down);
-            if (Physics.Raycast(ray, out RaycastHit info, MaxHoverRayDistance, _groundMask))
+            int hits = Physics.RaycastNonAlloc(ray, results, MaxHoverRayDistance, _groundMask);
+            if (hits != 0)
             {
-                if (info.distance < _hoverHeight - _correctionDelta)
-                    translation.y = _speed * Time.deltaTime;
-                else if (info.distance > _hoverHeight + _correctionDelta)
-                    translation.y = -_speed * Time.deltaTime;
-                else
-                    translation.y = 0;
+                foreach (var raycastHit in results)
+                {
+                    if (raycastHit.distance < _hoverHeight - _correctionDelta)
+                    {
+                        translation.y = _speed * Time.deltaTime;
+                    }
+                    else if (raycastHit.distance > _hoverHeight + _correctionDelta)
+                    {
+                        translation.y = -_speed * Time.deltaTime;
+                    }
+                    else
+                    {
+                        translation.y = 0;
+                    }
+                }
             }
-            
+
             transform.Translate(translation, Space.World);
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Vector3 hoverStart = _hoverCheckStart.position;
@@ -39,5 +53,6 @@ namespace LikeADoom
 
             Gizmos.DrawLine(hoverStart, hoverEnd);
         }
+#endif
     }
 }

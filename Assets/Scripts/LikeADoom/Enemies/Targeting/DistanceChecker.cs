@@ -12,20 +12,13 @@ namespace LikeADoom
         private static readonly Color[] _distanceColors = { Color.red, Color.yellow, Color.green, Color.cyan };
 
         private Transform _target;
-        private Distance _current = Distance.OutOfRange;
-        
-        public enum Distance
-        {
-            Close,
-            Medium,
-            Far,
-            OutOfRange,
-        }
-        
+        private DistanceTypes _current = DistanceTypes.OutOfRange;
+
         public void SetTarget(Transform target) => _target = target;
-        public Distance GetDistance() => _current;
+        public DistanceTypes GetDistance() => _current;
 
         public void StartChecking() => StartCoroutine(CheckRoutine());
+
         private IEnumerator CheckRoutine()
         {
             while (true)
@@ -35,22 +28,23 @@ namespace LikeADoom
             }
         }
 
-        private Distance GetCurrentDistance()
+        private DistanceTypes GetCurrentDistance()
         {
             float distance = Vector3.Distance(transform.position, _target.position);
             for (int i = 0; i < _distances.Length; i++)
                 if (distance < _distances[i])
-                    return (Distance)i;
+                    return (DistanceTypes)i;
 
-            return (Distance)_distances.Length;
+            return (DistanceTypes)_distances.Length;
         }
 
         private void OnValidate()
         {
             if (_distances.Length > 3)
-                throw new ArgumentException("No support for 4 and more distances!");
+                throw new ArgumentException("No supported for 4 and more distances!");
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             for (int i = 0; i < _distances.Length; i++)
@@ -59,5 +53,6 @@ namespace LikeADoom
                 Gizmos.DrawWireSphere(transform.position, _distances[i]);
             }
         }
+#endif
     }
 }

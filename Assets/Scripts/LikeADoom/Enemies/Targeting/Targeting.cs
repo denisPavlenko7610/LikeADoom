@@ -16,17 +16,17 @@ namespace LikeADoom
         public Transform Target { get; }
 
         public void Start() => _checker.StartChecking();
-        public bool IsTargetClose => IsTargetAtDistance(DistanceChecker.Distance.Close);
-        public bool IsTargetAtMediumDistance => IsTargetAtDistance(DistanceChecker.Distance.Medium);
-        public bool IsTargetAtMediumDistanceOrCloser => IsTargetCloserOrAt(DistanceChecker.Distance.Medium);
-        public bool IsTargetAtMediumDistanceOrFurther => IsTargetFurtherOrAt(DistanceChecker.Distance.Medium);
-        public bool IsTargetFar => IsTargetAtDistance(DistanceChecker.Distance.Far);
+        public bool IsTargetClose => IsTargetAtDistance(DistanceTypes.Close);
+        public bool IsTargetAtMediumDistance => IsTargetAtDistance(DistanceTypes.Medium);
+        public bool IsTargetAtMediumDistanceOrCloser => IsTargetCloserOrAt(DistanceTypes.Medium);
+        public bool IsTargetAtMediumDistanceOrFurther => IsTargetFurtherOrAt(DistanceTypes.Medium);
+        public bool IsTargetFar => IsTargetAtDistance(DistanceTypes.Far);
 
-        private bool IsTargetAtDistance(DistanceChecker.Distance distance) =>
+        private bool IsTargetAtDistance(DistanceTypes distance) =>
             _checker.GetDistance() == distance;
-        private bool IsTargetCloserOrAt(DistanceChecker.Distance distance) =>
+        private bool IsTargetCloserOrAt(DistanceTypes distance) =>
             _checker.GetDistance() <= distance;
-        private bool IsTargetFurtherOrAt(DistanceChecker.Distance distance) =>
+        private bool IsTargetFurtherOrAt(DistanceTypes distance) =>
             _checker.GetDistance() >= distance;
     }
 }

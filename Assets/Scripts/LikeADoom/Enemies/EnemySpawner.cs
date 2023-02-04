@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace LikeADoom
+namespace LikeADoom.LikeADoom.Enemies
 {
     public class EnemySpawner : MonoBehaviour
     {
@@ -20,14 +20,14 @@ namespace LikeADoom
             
             SpawnEnemy();
         }
-        
+
         private void Update()
         {
             foreach (var enemy in _enemies)
                 enemy.Act();
         }
 
-        public void SpawnEnemy()
+        private void SpawnEnemy()
         {
             Enemy enemy = _factory.CreateAt(_spawnPoint.position, _spawnPoint.rotation);
             _enemies.Add(enemy);

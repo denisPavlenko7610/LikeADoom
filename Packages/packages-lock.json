@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.rdragon.tools": {
+      "version": "https://github.com/denisPavlenko7610/RDTools.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a88c7818af68f8199afc0971be43381627bc7b07"
+    },
     "com.unity.ai.navigation": {
       "version": "1.1.1",
       "depth": 0,
