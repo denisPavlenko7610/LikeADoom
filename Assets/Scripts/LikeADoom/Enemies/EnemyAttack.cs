@@ -1,4 +1,5 @@
 using LikeADoom.Shooting;
+using LikeADoom.Shooting.BulletBuilder;
 using UnityEngine;
 
 namespace LikeADoom
@@ -12,15 +13,16 @@ namespace LikeADoom
 
         private const int InitialPoolCapacity = 5;
         private const int MaxPoolCapacity = 20;
-        private BulletPool _pool;
+        private Pool _pool;
 
         public float Cooldown => _cooldown;
         public Transform ShootPoint => _shootPoint;
 
         private void Awake()
         {
-            IBulletFactory factory = new BulletFactory(_projectilePrefab, null, _shootPoint);
-            _pool = new BulletPool(factory, _shootPoint, InitialPoolCapacity, MaxPoolCapacity);
+            IBulletFactory bulletFactory = new BulletFactory(_projectilePrefab, null, _shootPoint);
+            IBulletBuilder bulletBuilder = new BulletBuilder(bulletFactory);
+            _pool = new Pool(bulletBuilder, _shootPoint, InitialPoolCapacity, MaxPoolCapacity);
         }
 
         public void Attack()

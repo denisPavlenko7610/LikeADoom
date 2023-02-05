@@ -23,7 +23,11 @@ namespace LikeADoom.Shooting
             return this;
         }
 
-        public void Disable() => gameObject.SetActive(false);
+        public IBullet Disable()
+        {
+            gameObject.SetActive(false);
+            return this;
+        }
 
         private void OnCollisionEnter(Collision other)
         {

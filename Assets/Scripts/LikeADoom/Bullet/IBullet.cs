@@ -8,7 +8,7 @@ namespace LikeADoom.Shooting
         event Action OnBulletHit;
         event Action OnBulletTimeOver;
         IBullet Enable();
-        void Disable();
+        IBullet Disable();
         
         void Shoot(IShootPoint shootPointMovement);
         

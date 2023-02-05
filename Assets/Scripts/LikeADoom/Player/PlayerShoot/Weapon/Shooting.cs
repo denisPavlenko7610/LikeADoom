@@ -3,17 +3,17 @@ namespace LikeADoom.Shooting
     public class Shooting
     {
         private readonly IShootPoint _movement;
-        private readonly BulletPool _bulletPool;
+        private readonly Pool _pool;
 
-        public Shooting(IShootPoint movement, BulletPool bulletPool)
+        public Shooting(IShootPoint movement, Pool pool)
         {
             _movement = movement;
-            _bulletPool = bulletPool;
+            _pool = pool;
         }
 
         public void Shoot()
         {
-            _bulletPool.Create()
+            _pool.Create()
                 .Shoot(_movement);
         }
     }
