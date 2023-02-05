@@ -42,17 +42,18 @@ namespace LikeADoom.Shooting
         private IBullet OnCreateBullet()
         {
             IBullet bullet = _bulletFactory.Create();
-            bullet.SetupBulletPosition(_spawnPoint);
-            bullet.OnBulletHit += SubscribeOnRelease(bullet);
+            bullet.SetupBulletPosition(_spawnPoint)
+                .OnBulletHit += SubscribeOnRelease(bullet);
+            
             bullet.OnBulletTimeOver += SubscribeOnRelease(bullet);
             return bullet;
         }
 
         private void OnGetBullet(IBullet bullet)
         {
-            bullet.SetupBulletPosition(_spawnPoint);
-            bullet.Enable();
-            bullet.SetIsReleased(false);
+            bullet.SetupBulletPosition(_spawnPoint)
+                .Enable()
+                .SetIsReleased(false);
         }
 
         private void OnReleaseBullet(IBullet bullet)

@@ -13,8 +13,8 @@ namespace LikeADoom.Shooting
 
         public void Shoot()
         {
-            IBullet bullet = _bulletPool.Create();
-            bullet.Shoot(_movement);
+            _bulletPool.Create()
+                .Shoot(_movement);
         }
     }
 }

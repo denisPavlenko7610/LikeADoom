@@ -17,7 +17,12 @@ namespace LikeADoom.Shooting
         private bool _isSetDestroy;
         private bool _isReleased;
 
-        public void Enable() => gameObject.SetActive(true);
+        public IBullet Enable()
+        {
+            gameObject.SetActive(true);
+            return this;
+        }
+
         public void Disable() => gameObject.SetActive(false);
 
         private void OnCollisionEnter(Collision other)
@@ -29,10 +34,11 @@ namespace LikeADoom.Shooting
         public void Shoot(IShootPoint shootPointMovement) => 
             StartCoroutine(ShootRoutine(shootPointMovement));
 
-        public void SetupBulletPosition(Transform spawnPoint)
+        public IBullet SetupBulletPosition(Transform spawnPoint)
         {
             transform.position = spawnPoint.position;
             transform.rotation = spawnPoint.rotation;
+            return this;
         }
 
         public void SetIsReleased(bool isReleased) => _isReleased = isReleased;
