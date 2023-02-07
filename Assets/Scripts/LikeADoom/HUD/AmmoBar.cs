@@ -39,5 +39,10 @@ namespace LikeADoom
                 _ => _icon.sprite
             };
         }
+
+        public void ShowCount(int count)
+        {
+            _ammoCount.text = $"{count}";
+        }
     }
 }

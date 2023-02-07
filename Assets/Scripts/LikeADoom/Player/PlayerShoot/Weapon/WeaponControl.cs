@@ -9,30 +9,52 @@ namespace LikeADoom.Shooting
         [SerializeField] private Transform _parent;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _cameraTransform;
-        [SerializeField, Range(1, 100)] private float _speed;
 
-        private Pool _pool;
+        [SerializeField, Range(5, 50)] private int _ammoCount;
+        [SerializeField, Range(1, 100)] private float _bulletSpeed;
+
+        [SerializeField] private GunView _view;
+
+        private bool _isReloading;
+        private Gun _gun;
 
         private void Awake()
         {
             IBulletFactory bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
             IBulletBuilder bulletBuilder = new BulletBuilder.BulletBuilder(bulletFactory);
-            _pool = new Pool(bulletBuilder, _spawnPoint );
+            Pool pool = new Pool(bulletBuilder, _spawnPoint);
+            Shooting shooting = new Shooting(pool);
+            
+            _gun = new Gun(shooting, Weapon.BFG9000, _ammoCount, _bulletSpeed);
+        }
+        
+        private bool CanShoot => !_gun.IsEnoughAmmo || _isReloading;
+
+        public void Shoot()
+        {
+            if (CanShoot)
+                return;
+            
+            _view.PlayShootAnimation();
+            _gun.Shoot();
+            _view.ShowAmmoLeft(_gun.AmmoLeft);
         }
 
-        private void Update()
+        public void Reload()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Shoot();
-            }
+            _isReloading = true;
+            _view.PlayReloadAnimation();
+            
+            _view.AmmoClipInserted += OnAmmoClipInserted;
         }
 
-        private void Shoot()
+        private void OnAmmoClipInserted()
         {
-            IShootPoint movement = new BulletMovement(Vector3.forward, _speed);
-            Shooting shooting = new Shooting(movement, _pool);
-            shooting.Shoot();
+            _isReloading = false;
+            _gun.Reload();
+            
+            _view.ShowAmmoLeft(_gun.AmmoLeft);
+            _view.AmmoClipInserted -= OnAmmoClipInserted;
         }
     }
 }
