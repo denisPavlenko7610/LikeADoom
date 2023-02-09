@@ -18,6 +18,11 @@ namespace LikeADoom
             {
                 _weapon.Reload();
             }
+
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                _weapon.MeleeHit();
+            }
         }
     }
 }
