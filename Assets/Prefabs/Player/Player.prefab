@@ -1373,4 +1373,5 @@ MonoBehaviour:
   _cameraTransform: {fileID: 3405448975537456447}
   _ammoCount: 15
   _bulletSpeed: 15
+  _canSpamShoot: 1
   _view: {fileID: 4176848213771608544}

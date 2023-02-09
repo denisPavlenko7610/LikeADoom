@@ -8,28 +8,28 @@ namespace LikeADoom.Shooting
         private readonly Shooting _shooting;
         private readonly Weapon _type;
         private readonly int _maxAmmo;
-        private readonly float _speed;
+        private readonly float _bulletSpeed;
 
         private int _currentAmmo;
 
-        // TODO: Get maxAmmo and Speed by weapon type
-        public Gun(Shooting shooting, Weapon type, int maxAmmo, float speed)
+        // TODO: Get maxAmmo and speed by weapon type
+        public Gun(Shooting shooting, Weapon type, int maxAmmo, float bulletSpeed)
         {
             _shooting = shooting;
             _type = type;
             _maxAmmo = _currentAmmo = maxAmmo;
-            _speed = speed;
+            _bulletSpeed = bulletSpeed;
         }
 
         public int AmmoLeft => _currentAmmo;
-        public bool IsEnoughAmmo => _currentAmmo > 0;
+        public bool CanShoot => _currentAmmo > 0;
 
         public void Shoot()
         {
-            if (!IsEnoughAmmo)
+            if (!CanShoot)
                 throw new InvalidOperationException("No ammo! Check IsEnoughAmmo property before shooting!");
             
-            IShootPoint movement = new BulletMovement(Vector3.forward, _speed);
+            IShootPoint movement = new BulletMovement(Vector3.forward, _bulletSpeed);
             _shooting.Shoot(movement);
 
             _currentAmmo--;

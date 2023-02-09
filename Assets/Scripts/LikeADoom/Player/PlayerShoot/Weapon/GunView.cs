@@ -20,9 +20,13 @@ namespace LikeADoom.Shooting
             _ammoBar = ammoBar;
         }
         
-        public event Action AmmoClipInserted;
+        public event Action ShootAnimationAmmoClipInserted;
+        public event Action ShootAnimationEnd;
+        public event Action ReloadAnimationEnd;
 
-        public void OnAmmoClipInserted() => AmmoClipInserted?.Invoke();
+        public void OnAmmoClipInserted() => ShootAnimationAmmoClipInserted?.Invoke();
+        public void OnShootAnimationEnd() => ShootAnimationEnd?.Invoke();
+        public void OnReloadAnimationEnd() => ReloadAnimationEnd?.Invoke();
 
         public void PlayShootAnimation() => _animator.Play(ShootingAnimationName);
         public void PlayReloadAnimation() => _animator.Play(ReloadAnimationName);

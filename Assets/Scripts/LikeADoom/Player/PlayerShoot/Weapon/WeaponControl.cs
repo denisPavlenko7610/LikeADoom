@@ -12,10 +12,12 @@ namespace LikeADoom.Shooting
 
         [SerializeField, Range(5, 50)] private int _ammoCount;
         [SerializeField, Range(1, 100)] private float _bulletSpeed;
+        [SerializeField] private bool _canSpamShoot;
 
         [SerializeField] private GunView _view;
 
-        private bool _isReloading;
+        private bool _isShootAnimationPlaying;
+        private bool _isReloadAnimationPlaying;
         private Gun _gun;
 
         private void Awake()
@@ -26,35 +28,48 @@ namespace LikeADoom.Shooting
             Shooting shooting = new Shooting(pool);
             
             _gun = new Gun(shooting, Weapon.BFG9000, _ammoCount, _bulletSpeed);
+
+            // No unsubscription because the lifetimes are the same
+            _view.ShootAnimationAmmoClipInserted += OnAmmoClipInserted;
+            _view.ShootAnimationEnd += OnShootAnimationEnd;
+            _view.ReloadAnimationEnd += OnReloadAnimationEnd;
         }
-        
-        private bool CanShoot => !_gun.IsEnoughAmmo || _isReloading;
+
+        private bool CanShoot => 
+            _gun.CanShoot && 
+            !_isReloadAnimationPlaying &&
+            (!_isShootAnimationPlaying || _canSpamShoot);
 
         public void Shoot()
         {
-            if (CanShoot)
+            if (!CanShoot)
                 return;
             
-            _view.PlayShootAnimation();
             _gun.Shoot();
+            _isShootAnimationPlaying = true;
+            _view.PlayShootAnimation();
             _view.ShowAmmoLeft(_gun.AmmoLeft);
         }
 
         public void Reload()
         {
-            _isReloading = true;
+            _isReloadAnimationPlaying = true;
             _view.PlayReloadAnimation();
-            
-            _view.AmmoClipInserted += OnAmmoClipInserted;
         }
 
         private void OnAmmoClipInserted()
         {
-            _isReloading = false;
             _gun.Reload();
-            
             _view.ShowAmmoLeft(_gun.AmmoLeft);
-            _view.AmmoClipInserted -= OnAmmoClipInserted;
+        }
+
+        private void OnReloadAnimationEnd() => OnAnyAnimationEnd();
+        private void OnShootAnimationEnd() => OnAnyAnimationEnd();
+
+        private void OnAnyAnimationEnd()
+        {
+            _isReloadAnimationPlaying = false;
+            _isShootAnimationPlaying = false;
         }
     }
 }
