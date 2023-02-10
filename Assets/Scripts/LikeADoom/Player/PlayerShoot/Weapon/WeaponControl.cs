@@ -9,30 +9,108 @@ namespace LikeADoom.Shooting
         [SerializeField] private Transform _parent;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _cameraTransform;
-        [SerializeField, Range(1, 100)] private float _speed;
 
-        private Pool _pool;
+        // This can all be set by the weapon's type
+        [SerializeField, Range(5, 50)] private int _ammoCount;
+        [SerializeField, Range(1, 100)] private float _bulletSpeed;
+        [SerializeField] private bool _canSpamShoot;
+
+        [SerializeField] private GunView _view;
+
+        private bool _isShootAnimationPlaying;
+        private bool _isAmmoClipInserted;
+        private bool _isReloadAnimationPlaying;
+        private bool _isMeleeHitAnimationPlaying;
+        private Gun _gun;
 
         private void Awake()
         {
             IBulletFactory bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
             IBulletBuilder bulletBuilder = new BulletBuilder.BulletBuilder(bulletFactory);
-            _pool = new Pool(bulletBuilder, _spawnPoint );
+            Pool pool = new Pool(bulletBuilder, _spawnPoint);
+            Shooting shooting = new Shooting(pool);
+            
+            _gun = new Gun(shooting, Weapon.BFG9000, _ammoCount, _bulletSpeed);
+
+            // No unsubscription because the lifetimes are the same
+            _view.ShootAnimationAmmoClipInserted += OnAmmoClipInserted;
+            _view.ShootAnimationEnd += OnShootAnimationEnd;
+            _view.ReloadAnimationEnd += OnReloadAnimationEnd;
+            _view.HitAnimationHit += OnMeleeHit;
         }
 
-        private void Update()
+        private bool CanShoot => 
+            _gun.CanShoot && 
+            !_isReloadAnimationPlaying &&
+            !_isMeleeHitAnimationPlaying &&
+            (!_isShootAnimationPlaying || _canSpamShoot);
+
+        private bool CanMeleeHit =>
+            !_isShootAnimationPlaying ||
+            (_isReloadAnimationPlaying && _isAmmoClipInserted);
+
+        private bool CanReload =>
+            !_isMeleeHitAnimationPlaying;
+
+        public void Shoot()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Shoot();
-            }
+            if (!CanShoot)
+                return;
+            
+            _gun.Shoot();
+            _view.PlayShootAnimation();
+            _view.ShowAmmoLeft(_gun.AmmoLeft);
+            
+            ResetState();
+            _isShootAnimationPlaying = true;
         }
 
-        private void Shoot()
+        public void Reload()
         {
-            IShootPoint movement = new BulletMovement(Vector3.forward, _speed);
-            Shooting shooting = new Shooting(movement, _pool);
-            shooting.Shoot();
+            if (!CanReload)
+                return;
+            
+            _view.PlayReloadAnimation();
+            
+            ResetState();
+            _isReloadAnimationPlaying = true;
+        }
+
+        public void MeleeHit()
+        {
+            if (!CanMeleeHit)
+                return;
+            
+            _view.PlayHitAnimation();
+
+            ResetState();
+            _isMeleeHitAnimationPlaying = true;
+        }
+
+        private void OnAmmoClipInserted()
+        {
+            _gun.Reload();
+            _view.ShowAmmoLeft(_gun.AmmoLeft);
+            
+            _isAmmoClipInserted = true;
+        }
+
+        private void OnMeleeHit()
+        {
+            // Logic for dealing damage
+            
+            ResetState();
+        }
+        
+        private void OnReloadAnimationEnd() => ResetState();
+        private void OnShootAnimationEnd() => ResetState();
+        
+        private void ResetState()
+        {
+            _isReloadAnimationPlaying = false;
+            _isShootAnimationPlaying = false;
+            _isMeleeHitAnimationPlaying = false;
+            _isAmmoClipInserted = false;
         }
     }
 }

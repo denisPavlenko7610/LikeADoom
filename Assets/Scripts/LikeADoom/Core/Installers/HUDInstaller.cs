@@ -13,6 +13,9 @@ namespace LikeADoom
         {
             var hud = Container.InstantiatePrefabForComponent<Canvas>(_hudPrefab, _parentRoot);
             Container.Bind<Canvas>().FromInstance(hud);
+
+            var ammoBar = hud.GetComponentInChildren<AmmoBar>();
+            Container.Bind<AmmoBar>().FromInstance(ammoBar).AsSingle();
         }
     }
 }
