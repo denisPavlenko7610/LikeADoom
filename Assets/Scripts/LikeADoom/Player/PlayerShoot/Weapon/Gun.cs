@@ -27,8 +27,8 @@ namespace LikeADoom.Shooting
         public void Shoot()
         {
             if (!CanShoot)
-                throw new InvalidOperationException("No ammo! Check IsEnoughAmmo property before shooting!");
-            
+                Debug.LogError("No ammo! Check IsEnoughAmmo property before shooting!");
+
             IShootPoint movement = new BulletMovement(Vector3.forward, _bulletSpeed);
             _shooting.Shoot(movement);
 
