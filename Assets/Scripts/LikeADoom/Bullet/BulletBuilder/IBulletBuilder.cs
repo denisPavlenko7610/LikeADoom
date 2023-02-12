@@ -1,11 +1,6 @@
-using UnityEngine;
-
 namespace LikeADoom.Shooting.BulletBuilder
 {
-    public interface IBulletBuilder
+    public interface IBulletBuilder : IObjectBuilder<IBullet>
     {
-        IBulletBuilder SetupBulletPosition(Transform spawnPoint);
-        IBulletBuilder SetIsReleased(bool isReleased);
-        IBullet Build();
     }
 }

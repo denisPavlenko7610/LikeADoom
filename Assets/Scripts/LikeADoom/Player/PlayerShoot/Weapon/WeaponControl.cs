@@ -27,7 +27,7 @@ namespace LikeADoom.Shooting
         {
             IBulletFactory bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
             IBulletBuilder bulletBuilder = new BulletBuilder.BulletBuilder(bulletFactory);
-            Pool pool = new Pool(bulletBuilder, _spawnPoint);
+            Pool<IBullet> pool = new Pool<IBullet>(bulletBuilder, _spawnPoint);
             Shooting shooting = new Shooting(pool);
             
             _gun = new Gun(shooting, Weapon.BFG9000, _ammoCount, _bulletSpeed);

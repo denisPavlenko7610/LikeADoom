@@ -1,8 +1,7 @@
 namespace LikeADoom.Shooting
 {
-    public interface IBulletFactory
+    public interface IBulletFactory : IObjectFactory<IBullet>
     {
-        public IBullet Create();
     }
 }
 

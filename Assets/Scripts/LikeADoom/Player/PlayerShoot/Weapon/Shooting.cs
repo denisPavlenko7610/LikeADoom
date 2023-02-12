@@ -2,9 +2,9 @@ namespace LikeADoom.Shooting
 {
     public class Shooting
     {
-        private readonly Pool _pool;
+        private readonly Pool<IBullet> _pool;
 
-        public Shooting(Pool pool)
+        public Shooting(Pool<IBullet> pool)
         {
             _pool = pool;
         }

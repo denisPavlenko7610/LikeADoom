@@ -12,38 +12,21 @@ namespace LikeADoom.Shooting.BulletBuilder
             _bulletFactory = bulletFactory;
         }
 
-        public IBulletBuilder SetIsReleased(bool isReleased)
+        public IObjectBuilder<IBullet> At(Transform transform)
         {
-            CreateIfNull();
+            _bullet ??= _bulletFactory.Create();
+            _bullet.SetPosition(transform.position)
+                .SetRotation(transform.rotation)
+                .Enable();
             
-            _bullet.SetIsReleased(isReleased);
             return this;
         }
-        
+
         public IBullet Build()
         {
             var copyBullet = _bullet;
             _bullet = null;
             return copyBullet;
         }
-
-        public IBulletBuilder SetupBulletPosition(Transform spawnPoint)
-        {
-            CreateIfNull();
-            
-            _bullet.SetupBulletPosition(spawnPoint);
-            return this;
-        }
-        
-        private void CreateIfNull()
-        {
-            if (isBulletNull())
-            {
-                Create();
-            }
-        }
-
-        private bool isBulletNull() => _bullet == null;
-        private IBullet Create() => _bullet = _bulletFactory.Create();
     }
 }
