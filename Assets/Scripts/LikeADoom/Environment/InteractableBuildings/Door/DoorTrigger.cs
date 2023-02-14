@@ -10,7 +10,7 @@ namespace LikeADoom
         public event Action<bool> onDoorExitTriggeredHandler;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out PlayerMovement player))
+            if (other.TryGetComponent(out Player player))
             {
                 SetDoorState(DoorStates.Open);
             }
@@ -18,7 +18,7 @@ namespace LikeADoom
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out PlayerMovement player))
+            if (other.TryGetComponent(out Player player))
             {
                 SetDoorState(DoorStates.Close);
             }

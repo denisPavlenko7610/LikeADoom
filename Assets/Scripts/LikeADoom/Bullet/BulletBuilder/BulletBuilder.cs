@@ -12,7 +12,7 @@ namespace LikeADoom.Shooting.BulletBuilder
             _bulletFactory = bulletFactory;
         }
 
-        public BulletBuilder SetIsReleased(bool isReleased)
+        public IBulletBuilder SetIsReleased(bool isReleased)
         {
             CreateIfNull();
             
@@ -27,7 +27,7 @@ namespace LikeADoom.Shooting.BulletBuilder
             return copyBullet;
         }
 
-        public BulletBuilder SetupBulletPosition(Transform spawnPoint)
+        public IBulletBuilder SetupBulletPosition(Transform spawnPoint)
         {
             CreateIfNull();
             
