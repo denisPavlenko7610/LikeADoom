@@ -32,7 +32,7 @@ namespace LikeADoom.Shooting
 
         private IPoolable<T> OnCreate()
         {
-            IPoolable<T> poolable = _builder.At(_spawnPoint).Build();
+            IPoolable<T> poolable = _builder.AtTransform(_spawnPoint).Build();
             return poolable;
         }
 

@@ -25,8 +25,7 @@ namespace LikeADoom.Shooting
 
         private void Awake()
         {
-            IBulletFactory bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
-            IBulletBuilder bulletBuilder = new BulletBuilder.BulletBuilder(bulletFactory);
+            IBulletBuilder bulletBuilder = new BulletBuilder.BulletBuilder(_prefab, _parent, _spawnPoint, _cameraTransform);
             Pool<IBullet> pool = new Pool<IBullet>(bulletBuilder, _spawnPoint);
             Shooting shooting = new Shooting(pool);
             
