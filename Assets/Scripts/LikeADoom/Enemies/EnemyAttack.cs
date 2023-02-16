@@ -20,8 +20,8 @@ namespace LikeADoom
 
         private void Awake()
         {
-            IBulletBuilder bulletBuilder = new BulletBuilder(_projectilePrefab, null, _shootPoint);
-            _pool = new Pool<IBullet>(bulletBuilder, _shootPoint, InitialPoolCapacity, MaxPoolCapacity);
+            BulletFactory factory = new(_projectilePrefab, null, _shootPoint);
+            _pool = new Pool<IBullet>(factory, _shootPoint, InitialPoolCapacity, MaxPoolCapacity);
         }
 
         public void Attack()

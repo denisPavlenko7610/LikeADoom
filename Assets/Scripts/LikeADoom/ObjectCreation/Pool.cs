@@ -10,9 +10,9 @@ namespace LikeADoom.Shooting
 
         private readonly Transform _spawnPoint;
         private readonly IObjectPool<IPoolable<T>> _pool;
-        private readonly IObjectBuilder<IPoolable<T>> _builder;
+        private readonly IObjectFactory<IPoolable<T>> _builder;
 
-        public Pool(IObjectBuilder<IPoolable<T>> builder, Transform spawnPoint,
+        public Pool(IObjectFactory<IPoolable<T>> builder, Transform spawnPoint,
             int defaultCapacity = DefaultInitialCapacity, int maxSize = DefaultMaxSize)
         {
             _builder = builder;
@@ -32,7 +32,7 @@ namespace LikeADoom.Shooting
 
         private IPoolable<T> OnCreate()
         {
-            IPoolable<T> poolable = _builder.AtTransform(_spawnPoint).Build();
+            IPoolable<T> poolable = _builder.Create();
             return poolable;
         }
 
