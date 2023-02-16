@@ -36,6 +36,7 @@ namespace LikeADoom.Shooting
             _view.ShootAnimationEnd += OnShootAnimationEnd;
             _view.ReloadAnimationEnd += OnReloadAnimationEnd;
             _view.HitAnimationHit += OnMeleeHit;
+            _view.HitAnimationEnd += OnMeleeHitAnimationEnd;
         }
 
         private bool CanShoot => 
@@ -45,6 +46,7 @@ namespace LikeADoom.Shooting
             (!_isShootAnimationPlaying || _canSpamShoot);
 
         private bool CanMeleeHit =>
+            !_isMeleeHitAnimationPlaying &&
             !_isShootAnimationPlaying ||
             (_isReloadAnimationPlaying && _isAmmoClipInserted);
 
@@ -97,13 +99,12 @@ namespace LikeADoom.Shooting
         private void OnMeleeHit()
         {
             // Logic for dealing damage
-            
-            ResetState();
         }
         
         private void OnReloadAnimationEnd() => ResetState();
         private void OnShootAnimationEnd() => ResetState();
-        
+        private void OnMeleeHitAnimationEnd() => ResetState();
+
         private void ResetState()
         {
             _isReloadAnimationPlaying = false;

@@ -24,11 +24,13 @@ namespace LikeADoom.Shooting
         public event Action ShootAnimationEnd;
         public event Action ReloadAnimationEnd;
         public event Action HitAnimationHit;
+        public event Action HitAnimationEnd;
 
         public void OnAmmoClipInserted() => ShootAnimationAmmoClipInserted?.Invoke();
         public void OnShootAnimationEnd() => ShootAnimationEnd?.Invoke();
         public void OnReloadAnimationEnd() => ReloadAnimationEnd?.Invoke();
         public void OnHitAnimationHit() => HitAnimationHit?.Invoke();
+        public void OnHitAnimationEnd() => HitAnimationEnd?.Invoke();
 
         public void PlayShootAnimation() => _animator.Play(ShootingAnimationName);
         public void PlayReloadAnimation() => _animator.Play(ReloadAnimationName);
