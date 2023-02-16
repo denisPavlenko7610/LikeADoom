@@ -4,46 +4,54 @@ namespace LikeADoom.Shooting.BulletBuilder
 {
     public class BulletBuilder : IBulletBuilder
     {
+        private readonly GameObject _prefab;
+        private readonly Transform _parent;
+        private readonly Transform _spawnPoint;
+        private readonly Transform _rotation;
         private IBullet _bullet;
-        private IBulletFactory _bulletFactory;
 
-        public BulletBuilder(IBulletFactory bulletFactory)
+        public BulletBuilder(GameObject prefab, Transform parent, Transform spawnPoint)
+            : this(prefab, parent, spawnPoint, spawnPoint) { }
+            
+        public BulletBuilder(GameObject prefab, Transform parent, Transform spawnPoint, Transform rotation)
         {
-            _bulletFactory = bulletFactory;
+            _prefab = prefab;
+            _parent = parent;
+            _spawnPoint = spawnPoint;
+            _rotation = rotation;
         }
 
-        public IBulletBuilder SetIsReleased(bool isReleased)
+        public IObjectBuilder<IBullet> AtTransform(Transform transform)
         {
             CreateIfNull();
             
-            _bullet.SetIsReleased(isReleased);
+            _bullet.SetPosition(transform.position)
+                .SetRotation(transform.rotation);
+            
             return this;
         }
-        
+
         public IBullet Build()
         {
+            _bullet.Enable();
             var copyBullet = _bullet;
             _bullet = null;
             return copyBullet;
         }
 
-        public IBulletBuilder SetupBulletPosition(Transform spawnPoint)
-        {
-            CreateIfNull();
-            
-            _bullet.SetupBulletPosition(spawnPoint);
-            return this;
-        }
-        
         private void CreateIfNull()
         {
-            if (isBulletNull())
-            {
+            if (IsBulletNull())
                 Create();
-            }
         }
 
-        private bool isBulletNull() => _bullet == null;
-        private IBullet Create() => _bullet = _bulletFactory.Create();
+        private bool IsBulletNull() => _bullet == null;
+
+        private void Create()
+        {
+            GameObject cartridge = Object.Instantiate(_prefab, _spawnPoint.position, _rotation.rotation);
+            cartridge.transform.SetParent(_parent);
+            _bullet = cartridge.GetComponent<Bullet>();
+        }
     }
 }

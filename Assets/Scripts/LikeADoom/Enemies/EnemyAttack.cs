@@ -13,16 +13,15 @@ namespace LikeADoom
 
         private const int InitialPoolCapacity = 5;
         private const int MaxPoolCapacity = 20;
-        private Pool _pool;
+        private Pool<IBullet> _pool;
 
         public float Cooldown => _cooldown;
         public Transform ShootPoint => _shootPoint;
 
         private void Awake()
         {
-            IBulletFactory bulletFactory = new BulletFactory(_projectilePrefab, null, _shootPoint);
-            IBulletBuilder bulletBuilder = new BulletBuilder(bulletFactory);
-            _pool = new Pool(bulletBuilder, _shootPoint, InitialPoolCapacity, MaxPoolCapacity);
+            BulletFactory factory = new(_projectilePrefab, null, _shootPoint);
+            _pool = new Pool<IBullet>(factory, _shootPoint, InitialPoolCapacity, MaxPoolCapacity);
         }
 
         public void Attack()

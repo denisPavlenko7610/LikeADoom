@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LikeADoom.Shooting
 {
-    public class BulletFactory : IBulletFactory
+    public class BulletFactory : IObjectFactory<IBullet>
     {
         private readonly GameObject _prefab;
         private readonly Transform _parent;

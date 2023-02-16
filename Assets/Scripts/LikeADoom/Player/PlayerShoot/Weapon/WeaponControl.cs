@@ -25,10 +25,9 @@ namespace LikeADoom.Shooting
 
         private void Awake()
         {
-            IBulletFactory bulletFactory = new BulletFactory(_prefab, _parent, _spawnPoint, _cameraTransform);
-            IBulletBuilder bulletBuilder = new BulletBuilder.BulletBuilder(bulletFactory);
-            Pool pool = new Pool(bulletBuilder, _spawnPoint);
-            Shooting shooting = new Shooting(pool);
+            BulletFactory factory = new(_prefab, _parent, _spawnPoint, _cameraTransform);
+            Pool<IBullet> pool = new(factory, _spawnPoint, maxSize: _ammoCount);
+            Shooting shooting = new(pool);
             
             _gun = new Gun(shooting, Weapon.BFG9000, _ammoCount, _bulletSpeed);
 
@@ -37,6 +36,7 @@ namespace LikeADoom.Shooting
             _view.ShootAnimationEnd += OnShootAnimationEnd;
             _view.ReloadAnimationEnd += OnReloadAnimationEnd;
             _view.HitAnimationHit += OnMeleeHit;
+            _view.HitAnimationEnd += OnMeleeHitAnimationEnd;
         }
 
         private bool CanShoot => 
@@ -46,6 +46,7 @@ namespace LikeADoom.Shooting
             (!_isShootAnimationPlaying || _canSpamShoot);
 
         private bool CanMeleeHit =>
+            !_isMeleeHitAnimationPlaying &&
             !_isShootAnimationPlaying ||
             (_isReloadAnimationPlaying && _isAmmoClipInserted);
 
@@ -98,13 +99,12 @@ namespace LikeADoom.Shooting
         private void OnMeleeHit()
         {
             // Logic for dealing damage
-            
-            ResetState();
         }
         
         private void OnReloadAnimationEnd() => ResetState();
         private void OnShootAnimationEnd() => ResetState();
-        
+        private void OnMeleeHitAnimationEnd() => ResetState();
+
         private void ResetState()
         {
             _isReloadAnimationPlaying = false;
