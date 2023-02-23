@@ -30,12 +30,20 @@ namespace LikeADoom.Shooting
             
             _gun = new Gun(shooting, Weapon.BFG9000, _ammoCount, _bulletSpeed);
 
-            // No unsubscription because the lifetimes are the same
             _view.ShootAnimationAmmoClipInserted += OnAmmoClipInserted;
             _view.ShootAnimationEnd += OnShootAnimationEnd;
             _view.ReloadAnimationEnd += OnReloadAnimationEnd;
             _view.HitAnimationHit += OnMeleeHit;
             _view.HitAnimationEnd += OnMeleeHitAnimationEnd;
+        }
+
+        private void OnDestroy()
+        {
+            _view.ShootAnimationAmmoClipInserted -= OnAmmoClipInserted;
+            _view.ShootAnimationEnd -= OnShootAnimationEnd;
+            _view.ReloadAnimationEnd -= OnReloadAnimationEnd;
+            _view.HitAnimationHit -= OnMeleeHit;
+            _view.HitAnimationEnd -= OnMeleeHitAnimationEnd;
         }
 
         private bool CanShoot => 
