@@ -15,13 +15,13 @@ namespace LikeADoom
 
         private void Awake()
         {
-            _health.Damaged += OnDamaged;
+            _health.Changed += OnChanged;
             _health.Dying += OnDying;
         }
 
         private void OnDestroy()
         {
-            _health.Damaged -= OnDamaged;
+            _health.Changed -= OnChanged;
             _health.Dying -= OnDying;
         }
 
@@ -43,7 +43,7 @@ namespace LikeADoom
             }
         }
 
-        private void OnDamaged(int damage)
+        private void OnChanged(int damage)
         {
             _view.PlayPlayerHurtAnimation();
             _view.ShowArmorLeft(_health.Armor, _health.MaxArmor);

@@ -1,5 +1,4 @@
 using System;
-using RDTools.AutoAttach;
 using UnityEngine;
 
 namespace LikeADoom.Entities
@@ -21,7 +20,7 @@ namespace LikeADoom.Entities
         public int MaxArmor => _maxArmor;
         public int MaxHealth => _maxHealth;
 
-        public event Action<int> Damaged;
+        public event Action<int> Changed;
         public event Action Dying;
         
         private bool HasArmor => Armor > 0;
@@ -46,12 +45,34 @@ namespace LikeADoom.Entities
                     Die();
             }
             
-            Damaged?.Invoke(damage);
+            Changed?.Invoke(damage);
+        }
+        
+        public void Heal(int amount)
+        {
+            if (amount < 0)
+                Debug.LogError($"Can't heal negative amount of health! Was: {amount}.");
+
+            Health += amount;
+            Health = Math.Min(_maxHealth, Health);
+            
+            Changed?.Invoke(amount);
         }
 
         private void Die()
         {
             Dying?.Invoke();
+        }
+
+        public void ArmorUp(int count)
+        {
+            if (count < 0)
+                Debug.LogError($"Can't armor up on a negative armor amount! Was: {count}");
+
+            Armor += count;
+            Armor = Math.Min(_maxArmor, Armor);
+            
+            Changed?.Invoke(count);
         }
     }
 }
