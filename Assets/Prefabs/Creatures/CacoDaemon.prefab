@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 5440361095816646638}
   - component: {fileID: 8165457533946725016}
   - component: {fileID: 5357699821513562746}
+  - component: {fileID: 2358542440061312547}
   m_Layer: 7
   m_Name: CacoDaemon
   m_TagString: Untagged
@@ -251,8 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6618ffa4cee8a947ad85087d5cc0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
-  _damage: 10
+  _health: {fileID: 2358542440061312547}
   _attack: {fileID: 5440361095816646638}
   _movement: {fileID: 8165457533946725016}
   _checker: {fileID: 5357699821513562746}
@@ -307,3 +307,16 @@ MonoBehaviour:
   - 13
   - 26
   _delayBetweenChecksSeconds: 0.1
+--- !u!114 &2358542440061312547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421272472287922561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a4eee4d55d4ea2b0ead144620db559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 60

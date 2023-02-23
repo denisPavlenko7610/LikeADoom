@@ -1,15 +1,18 @@
 using UnityEngine;
 
-namespace LikeADoom.Collectabilities.ArmorCollectability
+namespace LikeADoom.Collectables
 {
     public class Armor : MonoBehaviour
     {
-        [SerializeField] float armorIncrease = 3.75f;
+        [SerializeField] int armorIncrease;
         [SerializeField] Collider collider;
+
         public void IncreaseArmor()
         {
             Debug.Log("Armor increased by " + armorIncrease);
         }
+
+        public int Count => armorIncrease;
 
         public void DisableArmorObject()
         {

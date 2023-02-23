@@ -1,3 +1,4 @@
+using LikeADoom.Creatures;
 using UnityEngine;
 
 namespace LikeADoom.Shooting
@@ -13,6 +14,11 @@ namespace LikeADoom.Shooting
         [SerializeField, Range(5, 50)] private int _ammoCount;
         [SerializeField, Range(1, 100)] private float _bulletSpeed;
         [SerializeField] private bool _canSpamShoot;
+
+        // Extract to a separate component later
+        [SerializeField] private Transform _meleeHitPoint;
+        [SerializeField] private Vector3 _meleeHitExtents;
+        [SerializeField] private int _meleeHitDamage;
 
         [SerializeField] private GunView _view;
 
@@ -105,7 +111,17 @@ namespace LikeADoom.Shooting
 
         private void OnMeleeHit()
         {
-            // Logic for dealing damage
+            // TODO: Non-alloc method
+            Collider[] colliders = Physics.OverlapBox(_meleeHitPoint.position, _meleeHitExtents);
+
+            foreach (var c in colliders)
+            {
+                if (c.TryGetComponent(out IDamageable damageable) && 
+                    damageable is not PlayerHealth)
+                {
+                    damageable.TakeDamage(_meleeHitDamage);
+                }
+            }
         }
         
         private void OnReloadAnimationEnd() => ResetState();
@@ -119,5 +135,13 @@ namespace LikeADoom.Shooting
             _isMeleeHitAnimationPlaying = false;
             _isAmmoClipInserted = false;
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(_meleeHitPoint.position, _meleeHitExtents);
+        }
+#endif
     }
 }

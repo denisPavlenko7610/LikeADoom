@@ -265,6 +265,7 @@ Transform:
   m_Children:
   - {fileID: 3639311840935681432}
   - {fileID: 939382321}
+  - {fileID: 543935959334958764}
   m_Father: {fileID: 3405729105312834271}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 2.126, y: 0, z: 1.114}
@@ -419,6 +420,8 @@ GameObject:
   - component: {fileID: 3376241120771703097}
   - component: {fileID: 4207292120051895}
   - component: {fileID: 4207292120051901}
+  - component: {fileID: 8227767995656062473}
+  - component: {fileID: 3849619314067845820}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -553,6 +556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8451a72c9b34c3c8e9cf1f3526af4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _view: {fileID: 8227767995656062473}
+  _health: {fileID: 3849619314067845820}
   _weapon: {fileID: 3408492717182374513}
 --- !u!114 &4207292120051901
 MonoBehaviour:
@@ -569,6 +574,65 @@ MonoBehaviour:
   armor: {fileID: 6513307436850416531, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
   health: {fileID: 156850190979316052, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
   ammo: {fileID: 6299922675347406694, guid: 1cf4b329eac19934691e03a8c75a8558, type: 3}
+  _health: {fileID: 3849619314067845820}
+--- !u!114 &8227767995656062473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407864859501590903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814155f90307447b94985ae920bd873c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3849619314067845820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407864859501590903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed447f8b5e8e48348f37b11522f886b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxArmor: 100
+  _maxHealth: 100
+  _armorDefensePercentage: 33
+--- !u!1 &8724497392806634987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543935959334958764}
+  m_Layer: 6
+  m_Name: MeleeHitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &543935959334958764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724497392806634987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.000000514352, y: -0.25000095, z: 1.5000002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3405448975537456447}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3408492717181919405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1374,4 +1438,7 @@ MonoBehaviour:
   _ammoCount: 15
   _bulletSpeed: 15
   _canSpamShoot: 1
+  _meleeHitPoint: {fileID: 543935959334958764}
+  _meleeHitExtents: {x: 1, y: 1, z: 1.5}
+  _meleeHitDamage: 50
   _view: {fileID: 4176848213771608544}

@@ -13,12 +13,14 @@ namespace LikeADoom.LikeADoom.Enemies
             EnemyIdleState idleState = new(this, transform, targeting);
             EnemyChaseState chaseState = new(this, transform, targeting, movement);
             EnemyAttackState attackState = new(this, transform, targeting, attack);
+            EnemyStunnedState stunnedState = new(this, transform, targeting, 0.1f);
 
             _states = new Dictionary<EnemyStates, EnemyState>()
             {
                 { EnemyStates.Idle, idleState },
                 { EnemyStates.Chase, chaseState },
-                { EnemyStates.Attacking, attackState }
+                { EnemyStates.Attacking, attackState },
+                { EnemyStates.Stunned, stunnedState },
             };
 
             _currentState = _states[EnemyStates.Idle];

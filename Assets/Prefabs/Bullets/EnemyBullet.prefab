@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletTransform: {fileID: 4840347439974517722}
   _destroyDelay: 8
+  _damage: 50
 --- !u!135 &4843461162394008392
 SphereCollider:
   m_ObjectHideFlags: 0
