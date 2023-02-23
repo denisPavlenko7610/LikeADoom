@@ -25,11 +25,13 @@ namespace LikeADoom
 
         private void Awake()
         {
+            _health.Damaged += OnDamaged;
             _health.Dying += OnDying;
         }
 
         private void OnDestroy()
         {
+            _health.Damaged -= OnDamaged;
             _health.Dying -= OnDying;
         }
 
@@ -43,9 +45,9 @@ namespace LikeADoom
 
         public void Act() => _stateMachine.Act();
 
-        public void TakeDamage(int damage)
+        private void OnDamaged(int damage)
         {
-            _health.TakeDamage(damage);
+            _stateMachine.SwitchTo(EnemyStates.Stunned);
         }
 
         private void OnDying()

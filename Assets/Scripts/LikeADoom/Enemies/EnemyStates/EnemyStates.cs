@@ -5,5 +5,6 @@ namespace LikeADoom
         Idle,
         Chase,
         Attacking,
+        Stunned
     }
 }

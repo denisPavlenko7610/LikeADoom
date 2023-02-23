@@ -5,18 +5,21 @@ namespace LikeADoom.Entities
 {
     public class Health : MonoBehaviour, IDamageable
     {
-        [SerializeField] int _maxHealth;
+        [SerializeField] private int _maxHealth;
         private int _health;
 
         private void Awake()
         {
             _health = _maxHealth;
         }
+        
+        public int Value => _health;
+        public int Max => _maxHealth;
 
         public event Action Dying;
         public event Action<int> Damaged;
 
-        public void TakeDamage(int damage)
+        public virtual void TakeDamage(int damage)
         {
             if (damage < 0)
                 Debug.LogError($"Damage can't be negative! Was: {damage}.");

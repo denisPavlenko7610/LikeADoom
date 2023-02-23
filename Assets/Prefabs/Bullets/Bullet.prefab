@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletTransform: {fileID: 4840347439974517722}
   _destroyDelay: 3
-  _damage: 10
+  _damage: 3
 --- !u!1001 &9019694445263094110
 PrefabInstance:
   m_ObjectHideFlags: 0
