@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace LikeADoom.Entities
+namespace LikeADoom.Creatures
 {
     public class Health : MonoBehaviour, IDamageable
     {

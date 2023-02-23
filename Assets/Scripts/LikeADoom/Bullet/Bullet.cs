@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using LikeADoom.Entities;
+using LikeADoom.Creatures;
 using RDTools.AutoAttach;
 using UnityEngine;
 

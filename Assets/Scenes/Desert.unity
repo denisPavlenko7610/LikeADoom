@@ -476,7 +476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6513307436850416531, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
       propertyPath: armorIncrease
-      value: 3.75
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6513307436850416532, guid: 8bac302c56dab584fbed0697afd53f3c, type: 3}
       propertyPath: m_RootOrder
@@ -730,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 156850190979316052, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: hpIncreaseCount
-      value: 2.81
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 156850190979316054, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: m_Enabled
@@ -1477,7 +1477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 156850190979316052, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: hpIncreaseCount
-      value: 3.5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 156850190979316054, guid: 6a40c879e89657c4d8524c5a6fa928a7, type: 3}
       propertyPath: m_Enabled

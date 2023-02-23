@@ -1,6 +1,6 @@
 using System;
 using LikeADoom.LikeADoom.Enemies;
-using LikeADoom.Entities;
+using LikeADoom.Creatures;
 using RDTools.AutoAttach;
 using UnityEngine;
 

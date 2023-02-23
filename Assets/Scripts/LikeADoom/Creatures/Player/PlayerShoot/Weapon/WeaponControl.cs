@@ -1,4 +1,4 @@
-using LikeADoom.Entities;
+using LikeADoom.Creatures;
 using UnityEngine;
 
 namespace LikeADoom.Shooting

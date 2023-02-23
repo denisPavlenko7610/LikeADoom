@@ -1,4 +1,4 @@
-using LikeADoom.Entities;
+using LikeADoom.Creatures;
 using LikeADoom.Shooting;
 using RDTools.AutoAttach;
 using UnityEngine;

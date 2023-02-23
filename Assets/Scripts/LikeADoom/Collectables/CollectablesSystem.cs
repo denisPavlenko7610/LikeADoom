@@ -1,6 +1,4 @@
-using LikeADoom.Collectables.AmmoCollectable;
-using LikeADoom.Collectables.ArmorCollectable;
-using LikeADoom.Entities;
+using LikeADoom.Creatures;
 using RDTools.AutoAttach;
 using UnityEngine;
 

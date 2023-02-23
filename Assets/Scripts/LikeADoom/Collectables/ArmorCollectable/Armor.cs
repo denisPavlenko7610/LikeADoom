@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LikeADoom.Collectables.ArmorCollectable
+namespace LikeADoom.Collectables
 {
     public class Armor : MonoBehaviour
     {

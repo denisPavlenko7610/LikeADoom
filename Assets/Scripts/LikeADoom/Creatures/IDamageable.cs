@@ -1,4 +1,4 @@
-namespace LikeADoom.Entities
+namespace LikeADoom.Creatures
 {
     public interface IDamageable
     {
