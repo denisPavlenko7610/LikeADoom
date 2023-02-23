@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using LikeADoom.Entities;
 using RDTools.AutoAttach;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace LikeADoom.Shooting
     {
         [SerializeField, Attach] private Transform _bulletTransform;
         [SerializeField] private float _destroyDelay = 3f;
+        [SerializeField] private int _damage;
 
         private Coroutine _destroyRoutine;
         private bool _isSetDestroy;
@@ -21,6 +23,8 @@ namespace LikeADoom.Shooting
         private void OnCollisionEnter(Collision other)
         {
             StopCoroutine(_destroyRoutine);
+            if (other.gameObject.TryGetComponent(out IDamageable damageable)) 
+                damageable.TakeDamage(_damage);
             ReleaseRequested?.Invoke(this);
         }
 

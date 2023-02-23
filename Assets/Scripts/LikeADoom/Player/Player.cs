@@ -1,11 +1,25 @@
+using LikeADoom.Entities;
 using LikeADoom.Shooting;
+using RDTools.AutoAttach;
 using UnityEngine;
 
 namespace LikeADoom
 {
+    [RequireComponent(typeof(Health))]
     public class Player : MonoBehaviour
     {
+        [SerializeField, Attach] private Health _health;
         [SerializeField] private WeaponControl _weapon;
+
+        private void Awake()
+        {
+            _health.Dying += OnDying;
+        }
+
+        private void OnDestroy()
+        {
+            _health.Dying -= OnDying;
+        }
 
         private void Update()
         {
@@ -23,6 +37,11 @@ namespace LikeADoom
             {
                 _weapon.MeleeHit();
             }
+        }
+
+        private void OnDying()
+        {
+            Destroy(gameObject);
         }
     }
 }

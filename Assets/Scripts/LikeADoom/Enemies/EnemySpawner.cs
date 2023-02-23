@@ -30,7 +30,14 @@ namespace LikeADoom.LikeADoom.Enemies
         private void SpawnEnemy()
         {
             Enemy enemy = _factory.CreateAt(_spawnPoint.position, _spawnPoint.rotation);
+            enemy.Dead += OnEnemyDead;
             _enemies.Add(enemy);
+        }
+
+        private void OnEnemyDead(Enemy enemy)
+        {
+            _enemies.Remove(enemy);
+            Destroy(enemy.gameObject);
         }
     }
 }
