@@ -46,6 +46,11 @@ namespace LikeADoom
         private void OnChanged(int damage)
         {
             _view.PlayPlayerHurtAnimation();
+            ShowCurrentStats();
+        }
+
+        private void ShowCurrentStats()
+        {
             _view.ShowArmorLeft(_health.Armor, _health.MaxArmor);
             _view.ShowHealthLeft(_health.Health, _health.MaxHealth);
         }

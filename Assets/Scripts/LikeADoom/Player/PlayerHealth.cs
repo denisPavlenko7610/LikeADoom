@@ -13,6 +13,7 @@ namespace LikeADoom.Entities
         {
             Armor = _maxArmor;
             Health = _maxHealth;
+            Changed?.Invoke(0);
         }
 
         public int Armor { get; private set; }
