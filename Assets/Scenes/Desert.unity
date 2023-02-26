@@ -235,37 +235,6 @@ Transform:
   m_Father: {fileID: 2112627550}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &207386453
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 207386454}
-  m_Layer: 0
-  m_Name: FX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &207386454
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207386453}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 899253936037278746}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217777489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,23 +1654,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8123442823217359407, guid: c47c77d335a90e643b13d847edb60372, type: 3}
+      propertyPath: _explosionFX
+      value: 
+      objectReference: {fileID: 2616935711456262575, guid: 29db6e31e027fd740aa7280717de864a, type: 3}
     - target: {fileID: 8991030410310753847, guid: c47c77d335a90e643b13d847edb60372, type: 3}
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3332849148697584804, guid: c47c77d335a90e643b13d847edb60372, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 207386454}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47c77d335a90e643b13d847edb60372, type: 3}
---- !u!4 &899253936037278746 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3332849148697584804, guid: c47c77d335a90e643b13d847edb60372, type: 3}
-  m_PrefabInstance: {fileID: 899253936037278745}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4606930253798983217
 PrefabInstance:
   m_ObjectHideFlags: 0

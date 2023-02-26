@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LikeADoom
+namespace LikeADoom.LikeADoom.Creatures.Enemies.Targeting
 {
     public class Targeting
     {

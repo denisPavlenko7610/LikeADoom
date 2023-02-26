@@ -1,17 +1,12 @@
 using System;
 using LikeADoom.LikeADoom.Enemies;
 using LikeADoom.Creatures;
+using LikeADoom.LikeADoom.Creatures.Enemies.Targeting;
 using RDTools.AutoAttach;
 using UnityEngine;
 
 namespace LikeADoom
 {
-    [
-        RequireComponent(typeof(Health)),
-        RequireComponent(typeof(EnemyAttack)),
-        RequireComponent(typeof(EnemyMovement)),
-        RequireComponent(typeof(DistanceChecker))
-    ]
     public class Enemy : MonoBehaviour 
     {
         [SerializeField, Attach] private Health _health;
@@ -23,7 +18,7 @@ namespace LikeADoom
 
         public event Action<Enemy> Dead;
 
-        private void Awake()
+        private void OnEnable()
         {
             _health.Damaged += OnDamaged;
             _health.Dying += OnDying;

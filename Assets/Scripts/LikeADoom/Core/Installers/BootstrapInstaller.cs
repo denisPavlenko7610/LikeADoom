@@ -1,4 +1,6 @@
-﻿using Zenject;
+﻿using LikeADoom.LikeADoom.Environment.NonInteractable.Barrel;
+using LikeADoom.LikeADoom.FxSystem;
+using Zenject;
 
 namespace LikeADoom
 {
@@ -6,8 +8,11 @@ namespace LikeADoom
     {
         public override void InstallBindings()
         {
-            //todo add services
-            
+            FxFactory fxFactory = new FxFactory();
+            ObjFactory objFactory = new ObjFactory();
+
+            Container.Bind<FxFactory>().FromInstance(fxFactory);
+            Container.Bind<ObjFactory>().FromInstance(objFactory);
         }
     }
 }

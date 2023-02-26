@@ -1,5 +1,7 @@
 using LikeADoom.LikeADoom.Environment.NonInteractable.Barel;
+using LikeADoom.LikeADoom.FxSystem;
 using UnityEngine;
+using Zenject;
 
 namespace LikeADoom.LikeADoom.Environment.NonInteractable.Barrel
 {
@@ -7,12 +9,21 @@ namespace LikeADoom.LikeADoom.Environment.NonInteractable.Barrel
     {
         [SerializeField] private RedBarrel _redBarrel;
         [SerializeField] private DestroyedBarrel _destroyedPrefab;
-        private ObjFactory _factory;
+        [SerializeField] private Transform _explosionFX;
+
+        private ObjFactory _objFactory;
+        private FxFactory _fxFactory;
+
+        [Inject]
+        private void Construct(ObjFactory objFactory, FxFactory fxFactory)
+        {
+            _objFactory = objFactory;
+            _fxFactory = fxFactory;
+        }
 
         private void OnEnable()
         {
             _redBarrel.onCollision += CreateDestroyedBarrel;
-            _factory = new ObjFactory();
         }
 
         private void OnDisable()
@@ -22,8 +33,8 @@ namespace LikeADoom.LikeADoom.Environment.NonInteractable.Barrel
 
         private void CreateDestroyedBarrel()
         {
-            DestroyedBarrel destroyedBarrel =
-                _factory.Create<DestroyedBarrel>(_destroyedPrefab.gameObject, transform.gameObject);
+            _objFactory.Create<DestroyedBarrel>(_destroyedPrefab.gameObject, transform.gameObject);
+            _fxFactory.Create<Transform>(_explosionFX.gameObject, transform.gameObject);
         }
     }
 }
