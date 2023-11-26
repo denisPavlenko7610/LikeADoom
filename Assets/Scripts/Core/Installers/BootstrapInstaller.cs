@@ -1,15 +1,13 @@
-﻿using LikeADoom.Core.SaveSystem;
-using LikeADoom.Environment.NonInteractable.Barrel;
+﻿using LikeADoom.Environment.NonInteractable.Barrel;
 using LikeADoom.FxSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace LikeADoom.Core.Installers
 {
     public class BootstrapInstaller : MonoInstaller
     {
-        [FormerlySerializedAs("saveSystemGo")] [SerializeField] SaveSystem.SaveSystem saveSystem;
+        [SerializeField] SaveSystem.SaveSystem saveSystem;
         public override void InstallBindings()
         {
             IsNewGame();
@@ -19,7 +17,7 @@ namespace LikeADoom.Core.Installers
 
             Container.Bind<FxFactory>().FromInstance(fxFactory);
             Container.Bind<ObjFactory>().FromInstance(objFactory);
-            Container.Bind<SaveSystem.SaveSystem>().FromInstance(saveSystem);
+            Container.Bind<SaveSystem.SaveSystem>().FromInstance(saveSystem).AsSingle().NonLazy();
         }
         static void IsNewGame()
         {

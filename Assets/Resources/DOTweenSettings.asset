@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 16995157, guid: acde4f962157aea4e87074719e47417b, type: 3}
+  m_Script: {fileID: 16995157, guid: 82e3ef5b8e8828047a619cd6f68a8bb0, type: 3}
   m_Name: DOTweenSettings
   m_EditorClassIdentifier: 
   useSafeMode: 1
@@ -17,6 +17,7 @@ MonoBehaviour:
     logBehaviour: 2
     nestedTweenFailureBehaviour: 0
   timeScale: 1
+  unscaledTimeScale: 1
   useSmoothDeltaTime: 0
   maxSmoothUnscaledTime: 0.15
   rewindCallbackMode: 0

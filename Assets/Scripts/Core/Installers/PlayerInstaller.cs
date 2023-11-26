@@ -9,8 +9,7 @@ namespace LikeADoom.Core.Installers
         [SerializeField] Player _playerPrefab;
         [SerializeField] Transform _spawnPosition;
         [SerializeField] Transform _parentRoot;
-
-
+        
         public override void InstallBindings()
         {
             var playerInstance = Container.InstantiatePrefabForComponent<Player>(_playerPrefab.gameObject,
