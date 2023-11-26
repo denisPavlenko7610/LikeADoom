@@ -17,7 +17,7 @@ namespace LikeADoom.Core.Installers
 
             Container.Bind<FxFactory>().FromInstance(fxFactory);
             Container.Bind<ObjFactory>().FromInstance(objFactory);
-            Container.Bind<SaveSystem.SaveSystem>().FromInstance(saveSystem).AsSingle().NonLazy();
+            Container.Bind<SaveSystem.SaveSystem>().FromInstance(saveSystem);
         }
         static void IsNewGame()
         {

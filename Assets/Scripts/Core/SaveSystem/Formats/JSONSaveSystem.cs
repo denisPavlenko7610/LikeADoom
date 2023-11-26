@@ -57,7 +57,8 @@ namespace LikeADoom.Core.SaveSystem.Formats
                     aes.IV = new byte[16];
 
                     ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-                    byte[] encrypted = encryptor.TransformFinalBlock(Encoding.UTF8.GetBytes(json), 0, json.Length);
+                    byte[] encrypted = encryptor.TransformFinalBlock(Encoding.UTF8.GetBytes(json), 0,
+                        json.Length);
 
                     File.WriteAllBytes(_filePath, encrypted);
                 }
@@ -86,7 +87,8 @@ namespace LikeADoom.Core.SaveSystem.Formats
                     aes.IV = new byte[16];
 
                     ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-                    byte[] decrypted = decryptor.TransformFinalBlock(File.ReadAllBytes(_filePath), 0, File.ReadAllBytes(_filePath).Length);
+                    byte[] decrypted = decryptor.TransformFinalBlock(File.ReadAllBytes(_filePath), 0,
+                        File.ReadAllBytes(_filePath).Length);
 
                     loadedJson = Encoding.UTF8.GetString(decrypted);
                 }
