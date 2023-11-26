@@ -5,7 +5,7 @@ namespace LikeADoom.Collectables.ArmorCollectable
     public class Armor : MonoBehaviour
     {
         [SerializeField] int armorIncrease;
-        [SerializeField] Collider collider;
+        [SerializeField] new Collider collider;
 
         public void IncreaseArmor()
         {

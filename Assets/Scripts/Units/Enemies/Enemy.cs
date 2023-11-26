@@ -53,7 +53,7 @@ namespace LikeADoom.Units.Enemies
                 SaveSystem.Load<EnemySaveData>();
         }
 
-        public void Act() => _stateMachine.Act();
+        public void Act() => _stateMachine?.Act();
 
         void OnDamaged(int damage)
         {

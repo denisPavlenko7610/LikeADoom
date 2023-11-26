@@ -5,7 +5,7 @@ namespace LikeADoom.Collectables.AmmoCollectable
     public class Ammo : MonoBehaviour
     {
         [SerializeField] float ammoIncrease = 5f;
-        [SerializeField] Collider collider;
+        [SerializeField] new Collider collider;
         public void IncreaseAmmo()
         {
             Debug.Log("Ammo increased by " + ammoIncrease);

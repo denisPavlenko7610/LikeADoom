@@ -5,7 +5,7 @@ namespace LikeADoom.Collectables.HealthCollectable
     public class AidKit : MonoBehaviour
     {
         [SerializeField] int hpIncreaseCount;
-        [SerializeField] Collider collider;
+        [SerializeField] new Collider collider;
         
         public void IncreaseHealth()
         {

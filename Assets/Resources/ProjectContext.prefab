@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5a06e738f69ed4a94c30cf4e3c39ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SaveType>k__BackingField: 1
+  <SaveType>k__BackingField: 0
   <UseEncryption>k__BackingField: 0
 --- !u!1 &8755352609897293544
 GameObject:
@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8647bb1a52a4fb5b9b5dc460fb455ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveSystemGo: {fileID: 2475773070063788375}
+  saveSystem: {fileID: 2475773070063788375}

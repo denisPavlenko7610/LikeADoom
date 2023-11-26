@@ -29,7 +29,7 @@ namespace LikeADoom.Units.Enemies.Targeting
         public void StartChecking()
         {
             _ctx = new CancellationTokenSource();
-            Check();
+            Check().Forget();
         }
 
         async UniTaskVoid Check()
