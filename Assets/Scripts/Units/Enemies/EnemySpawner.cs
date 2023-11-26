@@ -13,10 +13,10 @@ namespace LikeADoom.Units.Enemies
 
         EnemyFactory _factory;
         List<Enemy> _enemies;
-        SaveSystemGo _saveSystemGo;
+        SaveSystem _saveSystem;
 
         [Inject]
-        public void Initialize(Units.Player.Player player, IPlayerTransformProvider provider, SaveSystemGo saveSystem)
+        public void Initialize(Units.Player.Player player, IPlayerTransformProvider provider, SaveSystem saveSystem)
         {
             _factory = new EnemyFactory(_enemyPrefab, provider.Transform);
             _enemies = new List<Enemy>();
@@ -30,7 +30,7 @@ namespace LikeADoom.Units.Enemies
                 enemy.Act();
         }
 
-        void SpawnEnemy(SaveSystemGo saveSystem)
+        void SpawnEnemy(SaveSystem saveSystem)
         {
             Enemy enemy = _factory.CreateAt(_spawnPoint.position, _spawnPoint.rotation, saveSystem);
             enemy.Dead += OnEnemyDead;

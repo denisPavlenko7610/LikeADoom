@@ -12,7 +12,7 @@ namespace LikeADoom.Editor
          [MenuItem("Tools/Delete Saved Game")]
          static void DeleteSavedGameFile()
          {
-             string _path = Application.persistentDataPath + "/" + GameConstants.SaveFilePath;
+             string _path = Path.Combine(Application.persistentDataPath, GameConstants.SaveFilePath);
 
              if (File.Exists(_path))
              {

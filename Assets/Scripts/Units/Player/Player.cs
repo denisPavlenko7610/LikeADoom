@@ -17,11 +17,11 @@ namespace LikeADoom.Units.Player
         [SerializeField] PlayerHealth _health;
         [SerializeField] WeaponControl _weapon;
 
-        SaveSystemGo _saveSystem;
+        SaveSystem _saveSystem;
         int Id { get; set; }
 
         [Inject]
-        public void Init(SaveSystemGo saveSystem)
+        public void Init(SaveSystem saveSystem)
         {
             _saveSystem = saveSystem;
         }
@@ -45,6 +45,7 @@ namespace LikeADoom.Units.Player
             else
                 _saveSystem.Load<PlayerSaveData>();
             
+            _health.Init();
             UpdateParams();
         }
 
@@ -87,8 +88,6 @@ namespace LikeADoom.Units.Player
         }
         void UpdateParams()
         {
-            _health.Init();
-
             _view.UpdateHealth(_health.CurrentHealth, _health.MaxHealth);
             _view.UpdateArmor(_health.CurrentArmor, _health.MaxArmor);
         }

@@ -13,7 +13,7 @@ namespace LikeADoom.Core.SaveSystem
         Binary
     }
 
-    public class SaveSystemGo : MonoBehaviour, ILoadSystem
+    public class SaveSystem : MonoBehaviour, ILoadSystem
     {
         [field:SerializeField] public SaveType SaveType { get; set; }
         [field:SerializeField] public bool UseEncryption { get; private set; }
@@ -35,8 +35,6 @@ namespace LikeADoom.Core.SaveSystem
         {
             if (Input.GetKeyDown(KeyCode.F5))
             {
-                print("Save button pressed");
-
                 FindAllSavables();
                 ChooseSaveSystem();
                 Save();
@@ -56,9 +54,9 @@ namespace LikeADoom.Core.SaveSystem
 
             _saveLoadSystem = SaveType switch
             {
-                SaveType.Binary => new BinarySaveSystem(UseEncryption, GameConstants.SaveFilePath, _savables),
-                SaveType.JSON => new JSONSaveSystem(UseEncryption, GameConstants.SaveFilePath, _savables),
-                _ => new JSONSaveSystem(UseEncryption, GameConstants.SaveFilePath, _savables)
+                SaveType.Binary => new BinarySaveSystem(UseEncryption, _savables),
+                SaveType.JSON => new JSONSaveSystem(UseEncryption, _savables),
+                _ => new JSONSaveSystem(UseEncryption, _savables)
             };
         }
 

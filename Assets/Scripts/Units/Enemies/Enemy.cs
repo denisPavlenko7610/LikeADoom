@@ -19,7 +19,7 @@ namespace LikeADoom.Units.Enemies
 
         EnemyStateMachine _stateMachine;
         public int Id { get; private set; }
-        public SaveSystemGo SaveSystem { get; private set; }
+        public SaveSystem SaveSystem { get; private set; }
 
         public event Action<Enemy> Dead;
 
@@ -35,7 +35,7 @@ namespace LikeADoom.Units.Enemies
             _health.Dying -= OnDying;
         }
 
-        public void Init(Transform target, SaveSystemGo saveSystem)
+        public void Init(Transform target, SaveSystem saveSystem)
         {
             SaveSystem = saveSystem;
             

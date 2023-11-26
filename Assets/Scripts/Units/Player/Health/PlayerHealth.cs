@@ -6,9 +6,14 @@ namespace LikeADoom.Units.Player.Health
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
+        [SerializeField, Range(0, 100)] int _armorDefensePercentage;
         [field:SerializeField] public int MaxArmor { get; set; }
         [field:SerializeField] public int MaxHealth { get; set; }
-        [SerializeField, Range(0, 100)] int _armorDefensePercentage;
+        public int CurrentArmor { get; private set; }
+        public int CurrentHealth { get; private set; }
+        public event Action<int> HealthChanged;
+        public event Action<int> ArmorChanged;
+        public event Action Dying;
 
         public void Init()
         {
@@ -18,12 +23,6 @@ namespace LikeADoom.Units.Player.Health
                 CurrentArmor = MaxArmor;
             }
         }
-
-        public int CurrentArmor { get; private set; }
-        public int CurrentHealth { get; private set; }
-        public event Action<int> HealthChanged;
-        public event Action<int> ArmorChanged;
-        public event Action Dying;
         
         bool HasArmor => CurrentArmor > 0;
 
@@ -38,7 +37,7 @@ namespace LikeADoom.Units.Player.Health
             if (HasArmor)
             {
                 damage = damage * (100 - _armorDefensePercentage) / 100;
-                damage = Math.Min(CurrentArmor, damage);
+                damage = Mathf.Min(CurrentArmor, damage);
                 CurrentArmor -= damage;
             }
             else

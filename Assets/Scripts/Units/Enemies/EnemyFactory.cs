@@ -14,7 +14,7 @@ namespace LikeADoom.Units.Enemies
             _player = player;
         }
 
-        public Enemy CreateAt(Vector3 position, Quaternion rotation, SaveSystemGo saveSystem)
+        public Enemy CreateAt(Vector3 position, Quaternion rotation, SaveSystem saveSystem)
         {
             Enemy enemy = Object.Instantiate(_prefab, position, rotation);
             enemy.Init(_player, saveSystem);

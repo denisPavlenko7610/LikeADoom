@@ -615,9 +615,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed447f8b5e8e48348f37b11522f886b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _armorDefensePercentage: 33
   <MaxArmor>k__BackingField: 100
   <MaxHealth>k__BackingField: 100
-  _armorDefensePercentage: 33
 --- !u!1 &8724497392806634987
 GameObject:
   m_ObjectHideFlags: 0

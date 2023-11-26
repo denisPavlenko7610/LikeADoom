@@ -1,10 +1,12 @@
-﻿using LikeADoom.Core.SaveSystem.Interfaces;
+﻿using LikeADoom.Constants;
+using LikeADoom.Core.SaveSystem.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 namespace LikeADoom.Core.SaveSystem.Formats
@@ -12,15 +14,13 @@ namespace LikeADoom.Core.SaveSystem.Formats
     public class JSONSaveSystem : ISaveLoadSystem
     {
         bool _useEncryption;
-        string _fileName;
         string _filePath;
         List<ISavable> _savables = new();
         JsonSerializerSettings _settings;
         
-        public JSONSaveSystem(bool useEncryption, string fileName, List<ISavable> savables)
+        public JSONSaveSystem(bool useEncryption, List<ISavable> savables)
         {
             _useEncryption = useEncryption;
-            _fileName = fileName;
             _savables = savables;
             
             Init();
@@ -28,7 +28,7 @@ namespace LikeADoom.Core.SaveSystem.Formats
 
         void Init()
         {
-            _filePath = Path.Combine(Application.persistentDataPath, _fileName);
+            _filePath = Path.Combine(Application.persistentDataPath, GameConstants.SaveFilePath);
             _settings = new JsonSerializerSettings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
@@ -38,6 +38,7 @@ namespace LikeADoom.Core.SaveSystem.Formats
         
         public void Save()
         {
+            Delete();
             var saveData = new SaveData();
             foreach (ISavable savable in _savables)
             {
@@ -111,6 +112,15 @@ namespace LikeADoom.Core.SaveSystem.Formats
                     break;
                 }
             }
+        }
+        
+        void Delete()
+        {
+            if (!File.Exists(_filePath))
+                return;
+            
+            File.Delete(_filePath);
+            AssetDatabase.Refresh();
         }
         
         [Serializable]
